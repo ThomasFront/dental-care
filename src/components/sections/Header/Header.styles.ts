@@ -2,8 +2,8 @@ import styled from "styled-components";
 
 export const HeaderWrapper = styled.header`
   position: relative;
-  height: 92vh;
-  width: 100vw;
+  height: 95vh;
+  width: 100%;
 
   video {
     width: 100%;
@@ -18,7 +18,7 @@ export const Shadow = styled.div`
   position: absolute;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.75);
+  background-color: rgba(0, 0, 0, 0.8);
 `
 
 export const TextWrapper = styled.div`

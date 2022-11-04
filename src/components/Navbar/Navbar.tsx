@@ -18,9 +18,9 @@ export const Navbar = () => {
             </LogoWrapper>
             <BurgerWrapper>
               {openNavMobile ?
-                <NavMobileCloseIcon onClick={() => setOpenNavMobile(prev => !prev)}/>
+                <NavMobileCloseIcon onClick={() => setOpenNavMobile(prev => !prev)} />
                 :
-                <BurgerIcon onClick={() => setOpenNavMobile(prev => !prev)}/>
+                <BurgerIcon onClick={() => setOpenNavMobile(prev => !prev)} />
               }
             </BurgerWrapper>
             <DesktopItemWrapper>
