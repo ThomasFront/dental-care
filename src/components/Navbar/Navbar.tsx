@@ -1,25 +1,39 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { linkItems } from '../../utils'
-import { LinkItem } from '../LinkItem'
+import { LinkItemDesktop } from '../LinkItemDesktop'
+import { LinkItemMobile } from '../LinkItemMobile'
 import { TextWrapper } from '../TextWrapper'
-import { BurgerIcon, BurgerWrapper, DesktopItemWrapper, LogoWrapper, Nav, ToothIcon, Wrapper } from './Navbar.styles'
+import { BurgerIcon, BurgerWrapper, DesktopItemWrapper, LogoWrapper, Nav as NavDesktop, NavMobile, NavMobileCloseIcon, NavMobileItems, ToothIcon, Wrapper } from './Navbar.styles'
 
 export const Navbar = () => {
+  const [openNavMobile, setOpenNavMobile] = useState(false)
+
   return (
-    <Nav>
-      <TextWrapper>
-        <Wrapper>
-          <LogoWrapper>
-            <p><ToothIcon/> Dental<span>Care</span>.</p>
-          </LogoWrapper>
-          <BurgerWrapper>
-            <BurgerIcon/>
-          </BurgerWrapper>
-          <DesktopItemWrapper>
-            {linkItems.map(item => <LinkItem item={item}/>)}
-          </DesktopItemWrapper>
-        </Wrapper>
-      </TextWrapper>
-    </Nav>
+    <>
+      <NavDesktop>
+        <TextWrapper>
+          <Wrapper>
+            <LogoWrapper onClick={() => setOpenNavMobile(false)}>
+              <p><ToothIcon /> Dental<span>Care</span>.</p>
+            </LogoWrapper>
+            <BurgerWrapper>
+              {openNavMobile ?
+                <NavMobileCloseIcon onClick={() => setOpenNavMobile(prev => !prev)}/>
+                :
+                <BurgerIcon onClick={() => setOpenNavMobile(prev => !prev)}/>
+              }
+            </BurgerWrapper>
+            <DesktopItemWrapper>
+              {linkItems.map(item => <LinkItemDesktop item={item} />)}
+            </DesktopItemWrapper>
+          </Wrapper>
+        </TextWrapper>
+      </NavDesktop>
+      <NavMobile showMobileMenu={openNavMobile}>
+        <NavMobileItems>
+          {linkItems.map(item => <LinkItemMobile item={item} />)}
+        </NavMobileItems>
+      </NavMobile>
+    </>
   )
 }
