@@ -1,14 +1,20 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { HiBars3BottomRight } from 'react-icons/hi2'
 import { FaTooth } from 'react-icons/fa'
+import { MdOutlineCancel } from 'react-icons/md'
+
+type NavMobileProps = {
+  showMobileMenu?: boolean
+}
 
 export const Nav  = styled.nav`
+  z-index: 100;
   position: fixed;
   top: 0;
   width: 100%;
   height: 60px;
-  /* background-color: #eeeeee; */
-  box-shadow: 0 0 10px gray;
+  background-color: #ffffff;
+  border-bottom: 1px solid rgb(220, 220, 220);
 `
 
 export const Wrapper = styled.div`
@@ -40,6 +46,11 @@ export const BurgerIcon = styled(HiBars3BottomRight)`
   font-size: 40px;
   padding: 5px;
   cursor: pointer;
+  transition: color 0.2s;
+
+  &:hover {
+    color: #02adbe;
+  }
 `
 
 export const LogoWrapper = styled.div`
@@ -57,4 +68,42 @@ export const LogoWrapper = styled.div`
 
 export const ToothIcon = styled(FaTooth)`
   color: #02adbe;
+`
+
+export const NavMobile = styled.nav<NavMobileProps>`
+  position: fixed;
+  top: 0;
+  left: 102%;
+  height: 100vh;
+  width: 100vw;
+  background-color: #ffffff;
+  transition: left 0.3s;
+
+  ${({showMobileMenu}) => showMobileMenu && css`
+    left: 0;
+  `}
+
+  @media (min-width: 768px) {
+    display: none
+  }
+`
+
+export const NavMobileItems = styled.div`
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100%;
+`
+
+export const NavMobileCloseIcon = styled(MdOutlineCancel)`
+  padding: 5px;
+  font-size: 40px;
+  cursor: pointer;
+  transition: color 0.2s;
+
+  &:hover {
+    color: #02adbe;
+  }
 `

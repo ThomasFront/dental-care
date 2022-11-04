@@ -1,0 +1,1 @@
+export { LinkItemDesktop } from './LinkItem'

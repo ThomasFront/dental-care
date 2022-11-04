@@ -1,0 +1,1 @@
+export { LinkItemMobile } from './LinkItemMobile'
