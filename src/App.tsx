@@ -7,7 +7,6 @@ function App() {
     <>
       <Layout>
           <Header/>
-          {/* <div style={{height: '200vh'}}></div> */}
       </Layout>
     </>
   )

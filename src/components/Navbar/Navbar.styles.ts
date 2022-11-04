@@ -71,6 +71,7 @@ export const ToothIcon = styled(FaTooth)`
 `
 
 export const NavMobile = styled.nav<NavMobileProps>`
+  z-index: 90;
   position: fixed;
   top: 0;
   left: 102%;
@@ -89,6 +90,7 @@ export const NavMobile = styled.nav<NavMobileProps>`
 `
 
 export const NavMobileItems = styled.div`
+  z-index: 200;
   position: relative;
   display: flex;
   justify-content: center;
