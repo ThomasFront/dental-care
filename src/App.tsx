@@ -7,8 +7,8 @@ function App() {
   return (
     <>
       <Layout>
-          <Header/>
-          <About/>
+        <Header />
+        <About />
       </Layout>
     </>
   )
