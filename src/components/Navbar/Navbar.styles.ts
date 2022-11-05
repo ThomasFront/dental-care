@@ -37,6 +37,11 @@ export const DesktopItemWrapper = styled.div`
 
 export const BurgerWrapper = styled.div`
 
+  button {
+    background-color: transparent;
+    border: none;
+  }
+
   @media (min-width: 768px){
     display: none;
   }
@@ -68,6 +73,7 @@ export const LogoWrapper = styled.div`
 
 export const ToothIcon = styled(FaTooth)`
   color: #02adbe;
+  margin-right: 2px;
 `
 
 export const NavMobile = styled.nav<NavMobileProps>`
