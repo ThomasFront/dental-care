@@ -1,0 +1,1 @@
+export { DecorativeBg } from './DecorativeBg'

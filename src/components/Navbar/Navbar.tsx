@@ -14,24 +14,25 @@ export const Navbar = () => {
         <TextWrapper>
           <Wrapper>
             <LogoWrapper onClick={() => setOpenNavMobile(false)}>
-              <p><ToothIcon /> Dental<span>Care</span>.</p>
+              <ToothIcon />
+              <p>Dental<span>Care</span>.</p>
             </LogoWrapper>
             <BurgerWrapper>
               {openNavMobile ?
-                <NavMobileCloseIcon onClick={() => setOpenNavMobile(prev => !prev)} />
+                <button><NavMobileCloseIcon onClick={() => setOpenNavMobile(prev => !prev)} /></button>
                 :
-                <BurgerIcon onClick={() => setOpenNavMobile(prev => !prev)} />
+                <button><BurgerIcon onClick={() => setOpenNavMobile(prev => !prev)} /></button>
               }
             </BurgerWrapper>
             <DesktopItemWrapper>
-              {linkItems.map(item => <LinkItemDesktop item={item} />)}
+              {linkItems.map((item, index) => <LinkItemDesktop item={item} key={index} />)}
             </DesktopItemWrapper>
           </Wrapper>
         </TextWrapper>
       </NavDesktop>
       <NavMobile showMobileMenu={openNavMobile}>
         <NavMobileItems>
-          {linkItems.map(item => <LinkItemMobile item={item} />)}
+          {linkItems.map((item, index) => <LinkItemMobile item={item} key={index} />)}
         </NavMobileItems>
       </NavMobile>
     </>
