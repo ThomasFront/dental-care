@@ -1,1 +1,1 @@
-export const linkItems = ['Home', 'About', 'Services', 'Reviews', 'Contact']
+export const linkItems = ['Home', 'O nas', 'Usługi', 'Opinie', 'Kontakt']

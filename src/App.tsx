@@ -9,6 +9,7 @@ function App() {
       <Layout>
         <Header />
         <About />
+        <div style={{ height: '100vh' }}></div>
       </Layout>
     </>
   )
