@@ -8,9 +8,9 @@ export const Header = () => {
       <Shadow />
       <video src={backgroundVideo} autoPlay loop muted></video>
       <TextWrapper>
-        <h1>A better life starts with a beautiful smile!</h1>
-        <h2>Improve your smile with Dental<span>Care</span></h2>
-        <button>Check our services</button>
+        <h1>Lepsze życie zaczyna się od pięknego uśmiechu!</h1>
+        <h2>Popraw swój uśmiech z Dental<span>Care</span></h2>
+        <button>Nasze usługi</button>
       </TextWrapper>
     </HeaderWrapper>
   )
