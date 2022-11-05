@@ -10,34 +10,44 @@ export const Wrapper = styled.div`
   flex-direction: column;
   background-color: #f2f2f2;
   margin: 0 20px;
-  height: 400px;
+  height: 450px;
   border-radius: 6px;
   padding: 10px;
 
   img {
-    margin-bottom: 40px;
+    margin-bottom: 25px;
     width: 150px;
     height: 150px;
     border-radius: 50%;
     object-fit: cover;
     transition: transform 0.2s;
     box-shadow: 0 0 5px #02adbe;
+
+    @media (min-width: 768px){
+      margin-bottom: 30px;
+      width: 200px;
+      height: 200px;
+    }
   }
 
   h2 {
     text-align: center;
     color: #02adbe;
-    font-size: 30px;
+    font-size: 24px;
   }
 
   p {
-    margin-top: 20px;
+    margin-top: 10px;
     font-size: 14px;
     text-align: center;
+
+    @media (min-width: 768px){
+      margin-top: 20px;
+    }
   }
 
   &:hover img {
-    transform: scale(1.05);
+    transform: scale(1.03);
   }
 
   div {

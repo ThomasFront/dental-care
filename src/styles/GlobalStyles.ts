@@ -12,4 +12,8 @@ export const GlobalStyles = createGlobalStyle`
     color: black;
     font-family: 'Roboto', sans-serif;
   }
+
+  button {
+    font-family: 'Roboto', sans-serif;
+  }
 `

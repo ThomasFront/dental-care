@@ -44,6 +44,11 @@ export const TextWrapper = styled.div`
   @media (min-width: 576px){
     font-size: 28px;
   }
+
+  @media (min-width: 768px){
+    font-size: 33px;
+  }
+
   }
 
   h2 {
@@ -60,11 +65,14 @@ export const TextWrapper = styled.div`
   @media (min-width: 576px){
     font-size: 22px;
   }
+
+  @media (min-width: 768px){
+    font-size: 26px;
+  }
   }
 
   button {
     margin: 20px auto 0;
-    /* color: white; */
     background-color: #02adbe;
     border: none;
     padding: 6px 12px;
@@ -75,6 +83,10 @@ export const TextWrapper = styled.div`
   @media (min-width: 576px){
     font-size: 16px;
     padding: 8px 16px;
+  }
+
+  @media (min-width: 768px){
+    font-size: 18px;
   }
 
     &:hover {
