@@ -21,6 +21,7 @@ export const Achievement = ({ item }: ItemType) => {
         <CountUp
           end={amount}
           enableScrollSpy={true}
+          scrollSpyOnce={true}
           duration={3}
         />
       </h2>
