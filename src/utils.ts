@@ -116,3 +116,30 @@ export const services = [
     desc: 'Wybielanie zębów to zabieg stomatologii estetycznej, polegający na poprawieniu wyglądu przebarwionych zębów, za pomocą środków chemicznych.',
   },
 ]
+
+export const achievements = [
+  {
+    id: 1,
+    title: 'Specjalistów',
+    amount: 14,
+    image: '/assets/dentist.png'
+  },
+  {
+    id: 2,
+    title: 'Zadowolonych klientów',
+    amount: 1472,
+    image: '/assets/client.png'
+  },
+  {
+    id: 3,
+    title: 'Nagród',
+    amount: 71,
+    image: '/assets/trophy.png'
+  },
+  {
+    id: 4,
+    title: 'Gabinetów',
+    amount: 6,
+    image: '/assets/dentist-chair.png'
+  }
+]
