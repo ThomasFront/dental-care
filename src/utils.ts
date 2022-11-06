@@ -121,7 +121,7 @@ export const achievements = [
   {
     id: 1,
     title: 'Specjalistów',
-    amount: 14,
+    amount: 6,
     image: '/assets/dentist.png'
   },
   {
@@ -142,4 +142,32 @@ export const achievements = [
     amount: 6,
     image: '/assets/dentist-chair.png'
   }
+]
+
+export const questions = [
+  {
+    id: 1,
+    question: 'Jaki jest koszt pierwszej wizyty?',
+    answer: 'Pierwsza wizyta na której zostanie zrobiony kompletny przegląd stomatologiczny jest całkowicie darmowa.',
+  },
+  {
+    id: 2,
+    question: 'Jaki jest czas oczekiwania na wizytę?',
+    answer: 'Czas oczekiwania na wizytę do specjalisty mieści się w zakresie do siedmiu dni roboczych.',
+  },
+  {
+    id: 3,
+    question: 'Czy gabinet przyjmuje również osoby niepełnoletnie?',
+    answer: 'Tak, przyjmujemy zarówno osoby pełnoletnie jak i osoby niepełnoletnie.',
+  },
+  {
+    id: 4,
+    question: 'Czy można umawiać się na wizyty poprzez internet?',
+    answer: 'Na ten moment taka możliwość nie jest dostępna lecz pracujemy nad jej wdrożeniem.',
+  },
+  {
+    id: 5,
+    question: 'Czy istnieje możliwość płatności kartą?',
+    answer: 'Tak, w naszym gabinecie istnieje możliwość płatności zarówno kartą jak i gotówką.',
+  },
 ]
