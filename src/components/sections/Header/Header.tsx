@@ -1,6 +1,6 @@
 import React from 'react'
 import { HeaderWrapper, Shadow, TextWrapper } from './Header.styles'
-import backgroundVideo from '../../../../public/assets/backgroundVideo.mp4'
+import backgroundVideo from '/assets/backgroundVideo.mp4'
 
 export const Header = () => {
   return (
