@@ -2,8 +2,27 @@ import React from 'react'
 import { ItemProps } from '../LinkItemDesktop/LinkItem'
 import { LinkItem } from './LinkItemMobile.styles'
 
-export const LinkItemMobile = ({ item }: ItemProps) => {
+type LinkItemMobileType = {
+  item: {
+    value: string;
+    scrollTo: string;
+  },
+  setOpenNavMobile: any
+}
+
+export const LinkItemMobile = ({ item, setOpenNavMobile }: LinkItemMobileType) => {
+  const { value, scrollTo } = item
   return (
-    <LinkItem>{item}</LinkItem>
+    <LinkItem
+      to={scrollTo}
+      spy={true}
+      smooth={true}
+      offset={-100}
+      duration={500}
+      activeClass='activeSection'
+      onClick={() => setOpenNavMobile(false)}
+    >
+      {value}
+    </LinkItem>
   )
 }

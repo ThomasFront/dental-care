@@ -13,7 +13,14 @@ export const Navbar = () => {
       <NavDesktop>
         <TextWrapper>
           <Wrapper>
-            <LogoWrapper onClick={() => setOpenNavMobile(false)}>
+            <LogoWrapper
+              to='home'
+              spy={true}
+              smooth={true}
+              offset={-100}
+              duration={500}
+              onClick={() => setOpenNavMobile(false)}
+            >
               <ToothIcon />
               <p>Dental<span>Care</span>.</p>
             </LogoWrapper>
@@ -32,7 +39,7 @@ export const Navbar = () => {
       </NavDesktop>
       <NavMobile showMobileMenu={openNavMobile}>
         <NavMobileItems>
-          {linkItems.map((item, index) => <LinkItemMobile item={item} key={index} />)}
+          {linkItems.map((item, index) => <LinkItemMobile item={item} key={index} setOpenNavMobile={setOpenNavMobile} />)}
         </NavMobileItems>
       </NavMobile>
     </>

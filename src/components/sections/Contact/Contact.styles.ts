@@ -92,7 +92,6 @@ export const FormWrapper = styled.form`
     border-radius: 6px;
     border: none;
     width: 100%;
-    font-family: 'Roboto', sans-serif;
     transition: transform 0.2s, background-color 0.2s;
     cursor: pointer;
 

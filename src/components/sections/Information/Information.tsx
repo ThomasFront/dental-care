@@ -8,7 +8,7 @@ import informationPicture from '/assets/information-picture.svg'
 
 export const Information = () => {
   return (
-    <Wrapper>
+    <Wrapper id='information'>
       <SectionTitle>Informacje</SectionTitle>
       <Container>
         <TextWrapper>
