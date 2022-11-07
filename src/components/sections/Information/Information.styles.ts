@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Wrapper = styled.section`
-  margin: 60px 10px 0;
+  margin: 60px 10px;
 `
 
 export const Container = styled.div`

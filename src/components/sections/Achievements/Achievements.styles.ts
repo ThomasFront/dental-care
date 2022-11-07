@@ -17,11 +17,7 @@ export const ItemContainer = styled.div`
 
 export const Title = styled.h2`
   padding-top: 20px;
-  margin-bottom: 15px;
+  margin-bottom: 20px;
   text-align: center;
   text-transform: uppercase;
-
-  @media (min-width: 576px){
-    margin-bottom: 30px;
-  }
 `
