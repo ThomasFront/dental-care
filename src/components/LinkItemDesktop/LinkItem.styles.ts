@@ -1,8 +1,14 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { Link } from 'react-scroll'
+
 
 export const Item = styled(Link)`
   display: none;
+  
+  &.activeSection{
+    color: #02adbe;
+    border-bottom: 2px solid #02adbe;
+  }
   
   @media (min-width: 768px){
     position: relative;

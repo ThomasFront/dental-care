@@ -8,14 +8,23 @@ type NavMobileProps = {
   showMobileMenu?: boolean
 }
 
-export const Nav  = styled.nav`
+type NavProps = {
+  showNav: boolean
+}
+
+export const Nav  = styled.nav<NavProps>`
   z-index: 100;
   position: fixed;
-  top: 0;
+  top: -60px;
   width: 100%;
   height: 60px;
   background-color: #ffffff;
   border-bottom: 1px solid rgb(220, 220, 220);
+  transition: top 0.2s ease-in-out;
+  ${({showNav}) => showNav && css`
+    top: 0px;
+  `}
+
 `
 
 export const Wrapper = styled.div`
