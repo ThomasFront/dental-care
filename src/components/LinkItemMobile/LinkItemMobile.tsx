@@ -7,7 +7,7 @@ type LinkItemMobileType = {
     value: string;
     scrollTo: string;
   },
-  setOpenNavMobile: any
+  setOpenNavMobile: (value: boolean) => void
 }
 
 export const LinkItemMobile = ({ item, setOpenNavMobile }: LinkItemMobileType) => {
