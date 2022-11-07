@@ -24,39 +24,39 @@ export const linkItems = [
 export const doctors = [
   {
     id: 1,
-    name: 'Jan Nowicki',
-    image: 'https://cdn.pixabay.com/photo/2017/07/23/10/44/dentist-2530990_960_720.jpg',
-    alt: 'Fotografia przedstawiająca doktora Jan Nowicki'
+    name: 'Małgorzata Kowalska',
+    image: 'assets/doctor-four.jpg',
+    alt: 'Fotografia przedstawiająca doktora Małgorzata Kowalska'
   },
   {
     id: 2,
     name: 'Joshua Pawłowski',
-    image: 'https://burst.shopifycdn.com/photos/male-dentist.jpg?width=1200&format=pjpg&exif=1&iptc=1',
+    image: 'assets/doctor-two.jpg',
     alt: 'Fotografia przedstawiająca doktora Joshua Pawłowski'
   },
   {
     id: 3,
-    name: 'Mariusz Wilski',
-    image: 'https://img.freepik.com/free-photo/close-up-portrait-beautiful-young-lady-sitting-dental-chair-while-stomatologist-hands-sterile-gloves-holding-tooth-samples_158595-7636.jpg?w=2000',
-    alt: 'Fotografia przedstawiająca doktora Mariusza Wilski'
+    name: 'Maria Wiśniewska',
+    image: 'assets/doctor-three.jpg',
+    alt: 'Fotografia przedstawiająca doktora Maria Wiśniewska'
   },
   {
     id: 4,
     name: 'Paweł Wojciechowski',
-    image: 'https://img.freepik.com/free-photo/smiling-touching-arms-crossed-room-hospital_1134-799.jpg?w=2000',
+    image: '/assets/doctor-one.jpg',
     alt: 'Fotografia przedstawiająca doktora Paweł Wojciechowski'
   },
   {
     id: 5,
     name: 'Dariusz Woźniak',
-    image: 'https://cdn.stocksnap.io/img-thumbs/960w/male-doctor_KN1OCKC4Y2.jpg',
+    image: '/assets/doctor-five.jpg',
     alt: 'Fotografia przedstawiająca doktora Dariusz Woźniak'
   },
   {
     id: 6,
-    name: 'Maciej Węgrzyn',
-    image: 'https://img.freepik.com/free-photo/attractive-young-male-nutriologist-lab-coat-smiling-against-white-background_662251-2960.jpg?w=2000',
-    alt: 'Fotografia przedstawiająca doktora Maciej Węgrzyn'
+    name: 'Patrycja Brzoza',
+    image: '/assets/doctor-six.jpg',
+    alt: 'Fotografia przedstawiająca doktora Patrycja Brzoza'
   },
   
 ]
