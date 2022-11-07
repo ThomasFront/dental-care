@@ -16,7 +16,6 @@ function App() {
         <Achievements/>
         <Information/>
         <Contact/>
-        <div style={{ height: '100vh' }}></div>
       </Layout>
     </>
   )

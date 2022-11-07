@@ -21,7 +21,7 @@ export const Wrapper = styled.div`
     border-radius: 50%;
     object-fit: cover;
     transition: transform 0.2s;
-    box-shadow: 0 0 5px #02adbe;
+    border: 1px solid #02adbe;
 
     @media (min-width: 768px){
       margin-bottom: 30px;
