@@ -10,5 +10,10 @@ export const LinkItem = styled(Link)`
 
   &:hover {
       color: #02adbe;
-    }
+  }
+
+  &.activeSection{
+    color: #02adbe;
+    border-bottom: 2px solid #02adbe;
+  }
 `
