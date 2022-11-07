@@ -7,7 +7,7 @@ import { ContentContainer, GrayFade, ServicesContainer, Wrapper } from './Servic
 
 export const Services = () => {
   return (
-    <>
+    <div id='services'>
       <Wrapper>
         <ContentContainer>
           <SectionTitle>Usługi</SectionTitle>
@@ -17,6 +17,6 @@ export const Services = () => {
         </ContentContainer>
       </Wrapper>
       <GrayFade />
-    </>
+    </div>
   )
 }

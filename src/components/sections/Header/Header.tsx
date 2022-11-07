@@ -4,7 +4,7 @@ import backgroundVideo from '/assets/backgroundVideo.mp4'
 
 export const Header = () => {
   return (
-    <HeaderWrapper>
+    <HeaderWrapper id='home'>
       <Shadow />
       <video src={backgroundVideo} autoPlay loop muted></video>
       <TextWrapper>

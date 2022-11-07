@@ -2,6 +2,7 @@ import styled, { css } from "styled-components";
 import { HiBars3BottomRight } from 'react-icons/hi2'
 import { FaTooth } from 'react-icons/fa'
 import { MdOutlineCancel } from 'react-icons/md'
+import { Link } from 'react-scroll'
 
 type NavMobileProps = {
   showMobileMenu?: boolean
@@ -58,7 +59,7 @@ export const BurgerIcon = styled(HiBars3BottomRight)`
   }
 `
 
-export const LogoWrapper = styled.div`
+export const LogoWrapper = styled(Link)`
   display: flex;
   justify-content: center;
   align-items: center;

@@ -1,4 +1,25 @@
-export const linkItems = ['Home', 'O nas', 'Usługi', 'Informacje', 'Kontakt']
+export const linkItems = [
+  {
+    value: 'Home',
+    scrollTo: 'home',
+  },
+  {
+    value: 'O nas',
+    scrollTo: 'about',
+  },
+  {
+    value: 'Usługi',
+    scrollTo: 'services',
+  },
+  {
+    value: 'Informacje',
+    scrollTo: 'information',
+  },
+  {
+    value: 'Kontakt',
+    scrollTo: 'contact',
+  },
+]
 
 export const doctors = [
   {

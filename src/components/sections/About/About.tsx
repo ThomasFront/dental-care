@@ -12,7 +12,7 @@ export const About = () => {
   return (
     <>
       <TextWrapper>
-        <Section>
+        <Section id='about'>
           <SectionTitle>O nas</SectionTitle>
           <Container>
             <TextContainer>

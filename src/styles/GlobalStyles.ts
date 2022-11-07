@@ -16,4 +16,9 @@ export const GlobalStyles = createGlobalStyle`
   button {
     font-family: 'Roboto', sans-serif;
   }
+
+  .activeSection {
+    color: #02adbe;
+    border-bottom: 2px solid #02adbe;
+  }
 `

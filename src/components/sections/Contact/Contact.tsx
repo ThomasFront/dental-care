@@ -6,7 +6,7 @@ import ContactSvg from '/assets/contact-svg.svg'
 
 export const Contact = () => {
   return (
-    <Section>
+    <Section id='contact'>
       <SectionTitle>Kontakt</SectionTitle>
       <TextWrapper>
         <SectionWrapper>
