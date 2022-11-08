@@ -3,6 +3,7 @@ import { linkItems } from '../../utils'
 import { LinkItemDesktop } from '../LinkItemDesktop'
 import { LinkItemMobile } from '../LinkItemMobile'
 import { TextWrapper } from '../TextWrapper'
+import { VisitButton } from '../VisitButton'
 import { BurgerIcon, BurgerWrapper, DesktopItemWrapper, LogoWrapper, Nav as NavDesktop, NavMobile, NavMobileCloseIcon, NavMobileItems, ToothIcon, Wrapper } from './Navbar.styles'
 
 export const Navbar = () => {
@@ -35,11 +36,7 @@ export const Navbar = () => {
           <TextWrapper>
             <Wrapper>
               <LogoWrapper
-                to='home'
-                spy={true}
-                smooth={true}
-                offset={-100}
-                duration={500}
+                to='/'
                 onClick={() => setOpenNavMobile(false)}
               >
                 <ToothIcon />
@@ -54,12 +51,14 @@ export const Navbar = () => {
               </BurgerWrapper>
               <DesktopItemWrapper>
                 {linkItems.map((item, index) => <LinkItemDesktop item={item} key={index} />)}
+                <VisitButton setOpenNavMobile={setOpenNavMobile}/>
               </DesktopItemWrapper>
             </Wrapper>
           </TextWrapper>
         </NavDesktop>
       <NavMobile showMobileMenu={openNavMobile}>
         <NavMobileItems>
+          <VisitButton setOpenNavMobile={setOpenNavMobile}/>
           {linkItems.map((item, index) => <LinkItemMobile item={item} key={index} setOpenNavMobile={setOpenNavMobile} />)}
         </NavMobileItems>
       </NavMobile>

@@ -9,15 +9,10 @@ export type ItemProps = {
 }
 
 export const LinkItemDesktop = ({ item }: ItemProps) => {
-  const { value, scrollTo } = item
+  const { value } = item
   return (
     <Item
-      to={scrollTo}
-      spy={true}
-      smooth={true}
-      offset={-100}
-      duration={500}
-      activeClass='activeSection'
+      to=""
     >
       {value}
     </Item>
