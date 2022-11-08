@@ -36,6 +36,7 @@ export const LoginPage = () => {
 
   const onSubmit: SubmitHandler<Inputs> = ({email, password}) => {
     logInWithEmailAndPassword(email, password)
+    navigate('/visit')
   }
 
   return (

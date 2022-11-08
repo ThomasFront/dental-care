@@ -21,6 +21,7 @@ export const Navbar = () => {
   const handleLogout = () => {
     logout()
     navigate('/')
+    setOpenNavMobile(false)
   }
 
   const handleNav = () => {

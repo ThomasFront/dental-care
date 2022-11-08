@@ -10,7 +10,7 @@ export const VisitButton = ({setOpenNavMobile}: NavMobileType) => {
   return (
     <Link to="/visit" onClick={() => setOpenNavMobile(false)}>
       <Wrapper>
-        Umów wizytę!
+        Umów wizytę
       </Wrapper>
     </Link>
   )
