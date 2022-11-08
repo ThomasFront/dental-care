@@ -40,7 +40,7 @@ export const RegisterPage = () => {
 
   const onSubmit: SubmitHandler<Inputs> = ({ email, password, name }) => {
     registerWithEmailAndPassword(email, password, name)
-    navigate('/')
+    navigate('/visit')
   }
 
 
