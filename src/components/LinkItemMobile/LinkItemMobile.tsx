@@ -11,15 +11,10 @@ type LinkItemMobileType = {
 }
 
 export const LinkItemMobile = ({ item, setOpenNavMobile }: LinkItemMobileType) => {
-  const { value, scrollTo } = item
+  const { value } = item
   return (
     <LinkItem
-      to={scrollTo}
-      spy={true}
-      smooth={true}
-      offset={-100}
-      duration={500}
-      activeClass='activeSection'
+      to=""
       onClick={() => setOpenNavMobile(false)}
     >
       {value}

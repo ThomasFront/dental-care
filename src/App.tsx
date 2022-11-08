@@ -1,21 +1,20 @@
+import { Route, Routes } from "react-router-dom"
 import { Layout } from "./components/Layout"
-import { About } from "./components/sections/About"
-import { Achievements } from "./components/sections/Achievements"
-import { Contact } from "./components/sections/Contact"
-import Header from "./components/sections/Header/Header"
-import { Information } from "./components/sections/Information"
-import { Services } from "./components/sections/Services"
+import { HomePage } from "./pages/HomePage"
+import { LoginPage } from "./pages/LoginPage"
+import { RegisterPage } from "./pages/RegisterPage"
+import { VisitPage } from "./pages/VisitPage"
 
 function App() {
   return (
     <>
       <Layout>
-        <Header/>
-        <About/>
-        <Services/>
-        <Achievements/>
-        <Information/>
-        <Contact/>
+        <Routes>
+          <Route path="/" element={<HomePage/>}/>
+          <Route path="/visit" element={<VisitPage/>}/>
+          <Route path="/register" element={<RegisterPage/>}/>
+          <Route path="/login" element={<LoginPage/>}/>
+        </Routes>
       </Layout>
     </>
   )

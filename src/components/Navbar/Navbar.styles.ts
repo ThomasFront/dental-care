@@ -2,7 +2,7 @@ import styled, { css } from "styled-components";
 import { HiBars3BottomRight } from 'react-icons/hi2'
 import { FaTooth } from 'react-icons/fa'
 import { MdOutlineCancel } from 'react-icons/md'
-import { Link } from 'react-scroll'
+import { Link } from "react-router-dom";
 
 type NavMobileProps = {
   showMobileMenu?: boolean
@@ -75,6 +75,8 @@ export const LogoWrapper = styled(Link)`
   padding: 5px;
   font-size: 20px;
   cursor: pointer;
+  text-decoration: none;
+  color: black;
 
   span {
     color: #02adbe;

@@ -1,14 +1,11 @@
+import { Link } from "react-router-dom";
 import styled, { css } from "styled-components";
-import { Link } from 'react-scroll'
 
 
 export const Item = styled(Link)`
   display: none;
-  
-  &.activeSection{
-    color: #02adbe;
-    border-bottom: 2px solid #02adbe;
-  }
+  text-decoration: none;
+  color: black;
   
   @media (min-width: 768px){
     position: relative;
@@ -18,6 +15,22 @@ export const Item = styled(Link)`
     cursor: pointer;
     transition: color 0.2s;
 
+    &::before {
+      position: absolute;
+      content: '';
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background-color: #02adbe;
+      transform: scaleX(0);
+      transition: transform 0.2s;
+    }
+
+    &:hover::before {
+      transform: scale(1);
+    }
+    
     &:hover {
       color: #02adbe;
     }
