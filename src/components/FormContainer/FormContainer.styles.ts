@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const Container = styled.form`
+export const Container = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -13,6 +13,21 @@ export const Container = styled.form`
   max-width: 500px;
   width: 100%;
   background-color: #fff;
+
+  form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    
+    p {
+      color: crimson;
+      font-size: 12px;
+      margin-bottom: 10px;
+      text-align: center;
+    }
+  }
 
   h1 {
     margin-bottom: 40px;
