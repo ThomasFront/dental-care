@@ -3,6 +3,7 @@ import { HiBars3BottomRight } from 'react-icons/hi2'
 import { FaTooth } from 'react-icons/fa'
 import { MdOutlineCancel } from 'react-icons/md'
 import { Link } from "react-router-dom";
+import { BiLogOutCircle } from 'react-icons/bi'
 
 type NavMobileProps = {
   showMobileMenu?: boolean
@@ -11,6 +12,39 @@ type NavMobileProps = {
 type NavProps = {
   showNav: boolean
 }
+
+export const LogoutIcon = styled(BiLogOutCircle)`
+  font-size: 20px;
+`
+
+export const LogoutButton = styled.button`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 40px;
+  background-color: #02adbe;
+  padding: 8px 16px;
+  font-size: 18px;
+  cursor: pointer;
+  border: none;
+  border-radius: 6px;
+  box-shadow: 0 0 15px rgba(50, 50, 50, 0.3);
+  transition: transform 0.2s, background-color 0.2s;
+
+  @media (min-width: 768px){
+    margin-bottom: 0;
+    padding: 6px 12px;
+  }
+
+  @media (min-width: 1024px){
+    margin-left: 10px;
+  }
+  
+  &:hover {
+      transform: scale(1.03);
+      background-color: rgb(2, 188, 207);
+  }
+`
 
 export const Nav  = styled.nav<NavProps>`
   z-index: 100;

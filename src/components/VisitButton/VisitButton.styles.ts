@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const Wrapper = styled.button`
   margin-bottom: 40px;
   background-color: #02adbe;
-  padding: 8px 16px;
+  padding: 5px 10px;
   font-size: 18px;
   cursor: pointer;
   border: none;
@@ -13,7 +13,6 @@ export const Wrapper = styled.button`
 
   @media (min-width: 768px){
     margin-bottom: 0;
-    padding: 6px 12px;
   }
 
   @media (min-width: 1024px){

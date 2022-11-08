@@ -14,6 +14,7 @@ export const Item = styled(Link)`
     padding: 5px;
     cursor: pointer;
     transition: color 0.2s;
+    font-size: 14px;
 
     &::before {
       position: absolute;
@@ -38,5 +39,6 @@ export const Item = styled(Link)`
 
   @media (min-width: 992px) {
     padding: 8px;
+    font-size: 16px;
   }
 `
