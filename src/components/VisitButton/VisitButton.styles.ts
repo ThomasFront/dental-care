@@ -23,5 +23,5 @@ export const Wrapper = styled.button`
   &:hover {
       transform: scale(1.03);
       background-color: rgb(2, 188, 207);
-    }
+  }
 `
