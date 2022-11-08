@@ -7,11 +7,12 @@ export type ChildrenType = {
 }
 
 export const Layout = ({ children }: ChildrenType) => {
+
   return (
     <>
       <Navbar />
       <Wrapper>{children}</Wrapper>
-      <Footer/>
+      <Footer />
     </>
   )
 }

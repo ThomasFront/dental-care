@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useForm, SubmitHandler } from 'react-hook-form'
 import { FormContainer } from '../../components/FormContainer'
 import { PageWrapper } from '../../components/PageWrapper'
@@ -6,6 +6,9 @@ import { TextWrapper } from '../../components/TextWrapper'
 import { ContentWrapper, DecorativePerson, LinkItem, PersonIcon, Wrapper } from './LoginPage.styles'
 import * as yup from 'yup'
 import { yupResolver } from '@hookform/resolvers/yup'
+import { auth, logInWithEmailAndPassword } from '../../firebase'
+import { useAuthState } from 'react-firebase-hooks/auth'
+import { useNavigate } from 'react-router-dom'
 
 type Inputs = {
   email: string,
@@ -14,16 +17,25 @@ type Inputs = {
 
 const schema = yup.object().shape({
   email: yup.string().email('Wprowadź prawidłowy schemat email').required('Email jest wymagany'),
-  password: yup.string().required('Hasło jest wymagane').min(4, 'Hasło musi posiadać min. 4 znaki').max(20, 'Hasło może zawierać max. 20 znaków')
+  password: yup.string().required('Hasło jest wymagane').min(6, 'Hasło musi posiadać min. 6 znaków').max(20, 'Hasło może zawierać max. 20 znaków')
 })
 
 export const LoginPage = () => {
+  const [user] = useAuthState(auth)
+  const navigate = useNavigate()
+
+  useEffect(() => {
+    if (!!user){
+      navigate('/')
+    }
+  }, [user])
+
   const { register, handleSubmit, formState: { errors } } = useForm<Inputs>({
     resolver: yupResolver(schema)
   });
 
-  const onSubmit: SubmitHandler<Inputs> = (data) => {
-    console.log(data)
+  const onSubmit: SubmitHandler<Inputs> = ({email, password}) => {
+    logInWithEmailAndPassword(email, password)
   }
 
   return (
