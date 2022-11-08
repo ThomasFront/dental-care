@@ -72,7 +72,7 @@ export const FormWrapper = styled.form`
   }
 
   input:focus, textarea:focus {
-    outline: 2px solid #02adbe;
+    outline: 1px solid #02adbe;
     background-color: #eeeeee;
   }
 

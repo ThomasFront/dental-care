@@ -3,6 +3,7 @@ import styled from "styled-components";
 export const FooterItem = styled.footer`
   background-color: #02adbe;
   height: 25px;
+  border-top: 1px solid rgba(50, 50, 50, 0.3);
 `
 
 export const Container = styled.div`
