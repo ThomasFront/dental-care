@@ -1,10 +1,31 @@
 import React from 'react'
+import { useForm, SubmitHandler } from 'react-hook-form'
 import { FormContainer } from '../../components/FormContainer'
 import { PageWrapper } from '../../components/PageWrapper'
 import { TextWrapper } from '../../components/TextWrapper'
 import { ContentWrapper, DecorativePerson, LinkItem, PersonIcon, Wrapper } from './LoginPage.styles'
+import * as yup from 'yup'
+import { yupResolver } from '@hookform/resolvers/yup'
+
+type Inputs = {
+  email: string,
+  password: string,
+};
+
+const schema = yup.object().shape({
+  email: yup.string().email('Wprowadź prawidłowy schemat email').required('Email jest wymagany'),
+  password: yup.string().required('Hasło jest wymagane').min(4, 'Hasło musi posiadać min. 4 znaki').max(20, 'Hasło może zawierać max. 20 znaków')
+})
 
 export const LoginPage = () => {
+  const { register, handleSubmit, formState: { errors } } = useForm<Inputs>({
+    resolver: yupResolver(schema)
+  });
+
+  const onSubmit: SubmitHandler<Inputs> = (data) => {
+    console.log(data)
+  }
+
   return (
     <Wrapper>
       <TextWrapper>
@@ -14,9 +35,21 @@ export const LoginPage = () => {
               <PersonIcon />
             </DecorativePerson>
             <h1>Zaloguj się</h1>
-            <input type="email" placeholder='Email' />
-            <input type="password" placeholder='Hasło' />
-            <button>Zaloguj</button>
+            <form onSubmit={handleSubmit(onSubmit)}>
+              <input
+                type="email"
+                placeholder='Email'
+                {...register("email")}
+              />
+              <p>{errors.email?.message}</p>
+              <input
+                type="password"
+                placeholder='Hasło'
+                {...register("password")}
+              />
+              <p>{errors.password?.message}</p>
+              <button type='submit'>Zaloguj</button>
+            </form>
             <ContentWrapper>
               <p>Nie masz konta? <LinkItem to="/register">Zarejestruj</LinkItem> się!</p>
             </ContentWrapper>
