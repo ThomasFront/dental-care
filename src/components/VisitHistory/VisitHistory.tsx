@@ -1,7 +1,10 @@
 import React from 'react'
+import { TitleBox } from './VisitHistory.styles'
 
 export const VisitHistory = () => {
   return (
-    <div>VisitHistory</div>
+    <TitleBox>
+      <p>Historia wizyt:</p>
+    </TitleBox>
   )
 }
