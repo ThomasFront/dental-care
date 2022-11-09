@@ -26,6 +26,16 @@ export const FormContainer = styled.div`
   width: 100%;
   padding: 20px;
 
+  >p{
+    margin: 171px 0;
+    color: green;
+    font-weight: bold;
+
+    @media (min-width: 576px){
+      font-size: 16px;
+    }
+  }
+
   @media (min-width: 992px){
     width: 50%;
   }
@@ -64,7 +74,7 @@ export const FormWrapper = styled.form`
       font-size: 12px;
       margin-bottom: 10px;
       text-align: center;
-    }
+  }
 
   input, textarea {
     margin-bottom: 5px;
@@ -123,7 +133,7 @@ export const ImageWrapper = styled.div`
   @media(min-width: 992px){
     display: block;
     width: 50%;
-    background-color: #02adbe;
+    background-color: #f2f2f2;
     padding: 20px;
 
     img {
@@ -131,15 +141,6 @@ export const ImageWrapper = styled.div`
       height: 100%;
       object-fit: cover;
     }
-  }
-`
-
-export const MessageText= styled.p`
-  color: green !important;
-  font-weight: bold;
-
-  @media (min-width: 576px){
-    font-size: 16px !important;
   }
 `
 

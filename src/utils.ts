@@ -23,37 +23,37 @@ export const linkItems = [
 
 export const doctors = [
   {
-    id: 1,
+    id: '1',
     name: 'Małgorzata Kowalska',
     image: 'assets/doctor-four.jpg',
     alt: 'Fotografia przedstawiająca doktora Małgorzata Kowalska'
   },
   {
-    id: 2,
+    id: '2',
     name: 'Joshua Pawłowski',
     image: 'assets/doctor-two.jpg',
     alt: 'Fotografia przedstawiająca doktora Joshua Pawłowski'
   },
   {
-    id: 3,
+    id: '3',
     name: 'Maria Wiśniewska',
     image: 'assets/doctor-three.jpg',
     alt: 'Fotografia przedstawiająca doktora Maria Wiśniewska'
   },
   {
-    id: 4,
+    id: '4',
     name: 'Paweł Wojciechowski',
     image: '/assets/doctor-one.jpg',
     alt: 'Fotografia przedstawiająca doktora Paweł Wojciechowski'
   },
   {
-    id: 5,
+    id: '5',
     name: 'Dariusz Woźniak',
     image: '/assets/doctor-five.jpg',
     alt: 'Fotografia przedstawiająca doktora Dariusz Woźniak'
   },
   {
-    id: 6,
+    id: '6',
     name: 'Patrycja Brzoza',
     image: '/assets/doctor-six.jpg',
     alt: 'Fotografia przedstawiająca doktora Patrycja Brzoza'
@@ -210,3 +210,9 @@ export const visitPageCategories = [
     selected: 'Account'
   }
 ]
+
+export const hours = [9, 10, 11, 12, 13, 14, 15, 16, 17]
+export const appointmentHours = hours.map(hour => ({
+  label: `${hour}:00 - ${hour+1}:00`,
+  value: hour.toString()
+}))
