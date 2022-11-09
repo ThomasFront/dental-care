@@ -16,6 +16,7 @@ export const Navbar = () => {
   const [user] = useAuthState(auth);
   const navigate = useNavigate()
 
+
   const handleDirection = (offsetStateValue: number, offsetWindowValue: number) => offsetStateValue < offsetWindowValue
 
   const handleLogout = () => {
