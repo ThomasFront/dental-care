@@ -59,7 +59,15 @@ export const FormWrapper = styled.form`
   flex-direction: column;
   margin-top: 20px;
 
+  p {
+      color: crimson;
+      font-size: 12px;
+      margin-bottom: 10px;
+      text-align: center;
+    }
+
   input, textarea {
+    margin-bottom: 5px;
     font-family: 'Roboto', sans-serif;
     width: 100%;
     padding: 10px;
@@ -76,9 +84,6 @@ export const FormWrapper = styled.form`
     background-color: #eeeeee;
   }
 
-  input {
-    margin-bottom: 10px;
-  }
 
   textarea {
     resize: none;
@@ -117,12 +122,23 @@ export const ImageWrapper = styled.div`
 
   @media(min-width: 992px){
     display: block;
-    width: 50%;
+    width: 60%;
     background-color: #02adbe;
     padding: 20px;
 
     img {
       width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
+  }
+`
+
+export const MessageText= styled.p`
+  color: green !important;
+  font-weight: bold;
+
+  @media (min-width: 576px){
+    font-size: 16px !important;
   }
 `
