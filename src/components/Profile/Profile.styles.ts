@@ -5,7 +5,8 @@ export const Wrapper = styled.div`
 `
 
 export const TitleBox = styled.div`
-
+  margin-bottom: 20px;
+  
   p {
     text-align: center;
     color: #02adbe;
@@ -17,7 +18,6 @@ export const InformationBox = styled.div`
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  margin-top: 20px;
 
   span {
     font-weight: bold;

@@ -34,7 +34,7 @@ export const VisitPage = () => {
       setUserInfo(docs.docs[0].data() as UserInfoType)
       setLoading(false)
     } catch {
-      console.log('error')
+      console.log('user not logged in')
     }
   }
 
