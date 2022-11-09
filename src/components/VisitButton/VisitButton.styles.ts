@@ -15,10 +15,6 @@ export const Wrapper = styled.button`
     margin-bottom: 0;
     margin-left: 10px;
   }
-
-  @media (min-width: 1024px){
-    padding: 5px 10px;
-  }
   
   &:hover {
       transform: scale(1.03);

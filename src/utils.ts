@@ -192,3 +192,21 @@ export const questions = [
     answer: 'Tak, w naszym gabinecie istnieje możliwość płatności zarówno kartą jak i gotówką.',
   },
 ]
+
+export const visitPageCategories = [
+  {
+    id: 1,
+    value: 'Umów wizytę',
+    selected: 'Appointment'
+  },
+  {
+    id: 2,
+    value: 'Historia wizyt',
+    selected: 'History'
+  },
+  {
+    id: 3,
+    value: 'Twoje konto',
+    selected: 'Account'
+  }
+]

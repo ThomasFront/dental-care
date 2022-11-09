@@ -33,7 +33,7 @@ export const LogoutButton = styled.button`
 
   @media (min-width: 768px){
     margin-bottom: 0;
-    padding: 6px 12px;
+    padding: 4px 8px;
   }
 
   @media (min-width: 1024px){
