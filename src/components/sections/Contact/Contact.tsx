@@ -2,10 +2,11 @@ import React, { useState } from 'react'
 import { SubmitHandler, useForm } from 'react-hook-form'
 import { SectionTitle } from '../../SectionTitle'
 import { TextWrapper } from '../../TextWrapper'
-import { ContentWrapper, FormContainer, FormTitle, FormWrapper, ImageWrapper, MessageText, Section, SectionWrapper } from './Contact.styles'
+import { ContentWrapper, FormContainer, FormTitle, FormWrapper, ImageWrapper, MapContainer, MessageText, Section, SectionWrapper } from './Contact.styles'
 import ContactSvg from '/assets/contact-svg.svg'
 import * as yup from 'yup'
 import { yupResolver } from '@hookform/resolvers/yup'
+import { Map } from '../../Map'
 
 type Inputs = {
   name: string,
@@ -74,6 +75,9 @@ export const Contact = () => {
           </ContentWrapper>
         </SectionWrapper>
       </TextWrapper>
+      <MapContainer>
+        <Map />
+      </MapContainer>
     </Section>
   )
 }
