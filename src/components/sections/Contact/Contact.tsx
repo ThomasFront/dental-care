@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { SubmitHandler, useForm } from 'react-hook-form'
 import { SectionTitle } from '../../SectionTitle'
 import { TextWrapper } from '../../TextWrapper'
-import { ContentWrapper, FormContainer, FormTitle, FormWrapper, ImageWrapper, MapContainer, MessageText, Section, SectionWrapper } from './Contact.styles'
+import { ContactInfoWrapper, ContentWrapper, FormContainer, FormTitle, FormWrapper, ImageWrapper, MapContainer, MessageText, PhoneIcon, Section, SectionWrapper, SkyscraperIcon } from './Contact.styles'
 import ContactSvg from '/assets/contact-svg.svg'
 import * as yup from 'yup'
 import { yupResolver } from '@hookform/resolvers/yup'
@@ -40,6 +40,10 @@ export const Contact = () => {
           <ContentWrapper>
             <FormContainer>
               <FormTitle>
+                <ContactInfoWrapper>
+                  <h3><SkyscraperIcon /> Warszawa, ul. Łącka 3</h3>
+                  <h3><PhoneIcon /> +48 123 456 789</h3>
+                </ContactInfoWrapper>
                 <h2>Pozostańmy w kontakcie!</h2>
                 <p>Jak możemy Ci pomóc?</p>
               </FormTitle>

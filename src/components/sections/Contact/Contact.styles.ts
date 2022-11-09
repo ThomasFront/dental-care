@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { TbBuildingSkyscraper, TbPhone } from 'react-icons/tb'
 
 export const Section = styled.section`
   
@@ -17,7 +18,7 @@ export const ContentWrapper = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
-    max-width: 1000px;
+    max-width: 1200px;
   }
 `
 
@@ -31,7 +32,6 @@ export const FormContainer = styled.div`
 `
 
 export const FormTitle = styled.div`
-
   h2 {
     font-size: 18px;
     color: #02adbe;
@@ -122,7 +122,7 @@ export const ImageWrapper = styled.div`
 
   @media(min-width: 992px){
     display: block;
-    width: 60%;
+    width: 50%;
     background-color: #02adbe;
     padding: 20px;
 
@@ -147,4 +147,24 @@ export const MapContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+`
+
+export const PhoneIcon = styled(TbPhone)`
+  color: #02adbe;
+  font-size: 16px;
+`
+
+export const SkyscraperIcon = styled(TbBuildingSkyscraper)`
+  color: #02adbe;
+  font-size: 16px;
+`
+
+export const ContactInfoWrapper = styled.div`
+  margin-bottom: 20px;
+  
+  @media (min-width: 768px){
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+  }
 `
