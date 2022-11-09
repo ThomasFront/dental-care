@@ -1,15 +1,31 @@
 import React, { useState } from 'react'
-import { doctors } from '../../utils'
+import { appointmentHours, doctors } from '../../utils'
 import { Wrapper } from '../TextWrapper/TextWrapper.styles'
 import { AddVisitBtn, CalendarWrapper, SelectsContainer, Subtitled, TitleBox } from './Appointment.styles'
 import Calendar from 'react-calendar'
 import 'react-calendar/dist/Calendar.css';
+import { useDispatch } from 'react-redux'
+import { addAppointment, AppointmentsSelector, AppointmentType } from '../../store/slices/userSlice'
+import { format } from 'date-fns'
+import { useSelector } from 'react-redux'
 
 export const Appointment = () => {
-  const [selectedDoctor, setSelectedDoctor] = useState(doctors[0].name)
+  const [selectedDoctor, setSelectedDoctor] = useState(doctors[0].id)
   const [selectedDate, setSelectedDate] = useState(new Date())
-  console.log(selectedDoctor)
-  console.log(selectedDate)
+  const [selectedHour, setSelectedHour] = useState(appointmentHours[0].value)
+  const dispatch = useDispatch()
+  const allAppointments = useSelector(AppointmentsSelector)
+  console.log(allAppointments)
+
+  const handleAppointment = () => {
+    const payload: AppointmentType = {
+      date: format(selectedDate, 'dd-MM-yyyy'),
+      hour: `${selectedHour}:00 - ${parseInt(selectedHour)+1}:00`,
+      doctorId: selectedDoctor,
+      doctorName: doctors.filter(doctor => doctor.id === selectedDoctor)[0].name 
+    }
+    dispatch(addAppointment(payload))
+  }
 
   return (
     <Wrapper>
@@ -18,9 +34,9 @@ export const Appointment = () => {
       </TitleBox>
       <SelectsContainer>
         <Subtitled>Wybierz stomatologa:</Subtitled>
-        <select value={selectedDoctor} onChange={(e) => setSelectedDoctor(e.target.value)}>
+        <select value={selectedDoctor} onChange={e => setSelectedDoctor(e.target.value)}>
           {doctors.map(doctor =>
-            <option key={doctor.id}>{doctor.name}</option>
+            <option value={doctor.id} key={doctor.id}>{doctor.name}</option>
           )}
         </select>
         <Subtitled>Wybierz date:</Subtitled>
@@ -30,9 +46,16 @@ export const Appointment = () => {
             onChange={setSelectedDate}
             minDate={new Date()}
             maxDate={new Date("12-31-2023")}
-            />
+          />
         </CalendarWrapper>
-        <AddVisitBtn>Umów wizytę</AddVisitBtn>
+          
+        <Subtitled>Wybierz godzine:</Subtitled>
+          <select value={selectedHour} onChange={e => setSelectedHour(e.target.value)}>
+            {appointmentHours.map(({ label, value }) =>
+              <option value={value}>{label}</option>
+            )}
+          </select>
+        <AddVisitBtn onClick={handleAppointment}>Umów wizytę</AddVisitBtn>
       </SelectsContainer>
     </Wrapper>
   )

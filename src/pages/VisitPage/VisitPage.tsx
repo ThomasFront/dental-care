@@ -20,30 +20,32 @@ export type UserInfoType = {
 }
 
 export const VisitPage = () => {
-  const [user] = useAuthState(auth);
+  const [user, loading] = useAuthState(auth);
   const [selectedCategory, setSelectedCategory] = useState('Appointment')
   const [userInfo, setUserInfo] = useState<null | UserInfoType>(null)
-  const [loading, setLoading] = useState(false)
   const navigate = useNavigate()
 
   const getUser = async () => {
     try {
-      setLoading(true)
       const q = query(collection(db, "users"), where("uid", "==", user?.uid));
       const docs = await getDocs(q);
       setUserInfo(docs.docs[0].data() as UserInfoType)
-      setLoading(false)
     } catch {
       console.log('user not logged in')
     }
   }
 
   useEffect(() => {
-    getUser()
-    if (!user) {
-      navigate('/login')
+    if(user){
+      getUser()
     }
   }, [user])
+  
+  useEffect(() => {
+    if(!loading && !user){
+      navigate('/login')
+    }
+  }, [user, loading])
 
   return (
     <Wrapper>

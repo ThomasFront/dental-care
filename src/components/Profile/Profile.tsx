@@ -17,14 +17,18 @@ export const Profile = ({ userInfo }: InfoType) => {
   const navigate = useNavigate()
 
   const deleteAccount = async () => {
-    const auth = getAuth();
-    const user = auth.currentUser;
-    const q = query(collection(db, "users"), where("uid", "==", user?.uid));
-    const docs = await getDocs(q);
-    await deleteDoc(doc(db, "users", docs.docs[0].id))
-    await deleteUser(user as User)
-    logout
-    navigate('/')
+    try{
+      const auth = getAuth();
+      const user = auth.currentUser;
+      const q = query(collection(db, "users"), where("uid", "==", user?.uid));
+      const docs = await getDocs(q);
+      await deleteDoc(doc(db, "users", docs.docs[0].id))
+      await deleteUser(user as User)
+      logout()
+      navigate('/')
+    } catch (error){
+      console.log('error')
+    }
   }
 
   return (

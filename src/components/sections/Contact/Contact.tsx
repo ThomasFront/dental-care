@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { SubmitHandler, useForm } from 'react-hook-form'
 import { SectionTitle } from '../../SectionTitle'
 import { TextWrapper } from '../../TextWrapper'
-import { ContactInfoWrapper, ContentWrapper, FormContainer, FormTitle, FormWrapper, ImageWrapper, MapContainer, MessageText, PhoneIcon, Section, SectionWrapper, SkyscraperIcon } from './Contact.styles'
+import { ContactInfoWrapper, ContentWrapper, FormContainer, FormTitle, FormWrapper, ImageWrapper, MapContainer, PhoneIcon, Section, SectionWrapper, SkyscraperIcon } from './Contact.styles'
 import ContactSvg from '/assets/contact-svg.svg'
 import * as yup from 'yup'
 import { yupResolver } from '@hookform/resolvers/yup'
@@ -47,10 +47,9 @@ export const Contact = () => {
                 <h2>Pozostańmy w kontakcie!</h2>
                 <p>Jak możemy Ci pomóc?</p>
               </FormTitle>
-              <FormWrapper onSubmit={handleSubmit(onSubmit)}>
                 {confirmSending ?
-                  <MessageText>Wiadomość została wysłana. Skontaktujemy się w ciągu 24h.</MessageText> :
-                  <>
+                  <p>Wiadomość została wysłana. Skontaktujemy się w ciągu 24h.</p> :
+                  <FormWrapper onSubmit={handleSubmit(onSubmit)}>
                     <input
                       type="text"
                       placeholder='Wpisz swoje imie'
@@ -69,9 +68,8 @@ export const Contact = () => {
                     />
                     <p>{errors.contents?.message}</p>
                     <button>Wyślij</button>
-                  </>
+                  </FormWrapper>
                 }
-              </FormWrapper>
             </FormContainer>
             <ImageWrapper>
               <img src={ContactSvg} alt="" />
