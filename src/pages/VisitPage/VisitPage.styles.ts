@@ -10,11 +10,11 @@ export const ContentContainer = styled.div`
   align-items: center;
   flex-direction: column;
   position: relative;
-  margin: 60px 15px 0;
+  margin: 10px 15px 60px;
   padding: 20px;
   box-shadow: 0 0 15px rgba(50, 50, 50, 0.3);
   border-radius: 6px;
-  max-width: 800px;
+  max-width: 600px;
   width: 100%;
   background-color: #fff;
 `

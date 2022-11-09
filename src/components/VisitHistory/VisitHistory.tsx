@@ -4,7 +4,7 @@ import { TitleBox } from './VisitHistory.styles'
 export const VisitHistory = () => {
   return (
     <TitleBox>
-      <p>Historia wizyt:</p>
+      <p>Umówione wizyty:</p>
     </TitleBox>
   )
 }

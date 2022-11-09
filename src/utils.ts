@@ -201,7 +201,7 @@ export const visitPageCategories = [
   },
   {
     id: 2,
-    value: 'Historia wizyt',
+    value: 'Umówione wizyty',
     selected: 'History'
   },
   {
