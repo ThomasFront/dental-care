@@ -142,3 +142,9 @@ export const MessageText= styled.p`
     font-size: 16px !important;
   }
 `
+
+export const MapContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`
