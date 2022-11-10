@@ -24,9 +24,13 @@ export const userSlice = createSlice({
     addAppointment: (state, action: PayloadAction<AppointmentType>) => {
       state.appointments.push(action.payload)
     },
+    deleteAppointment: (state, action: PayloadAction<number>) => {
+      const indexToDelete = action.payload
+      state.appointments.splice(indexToDelete, 1)
+    }
   },
 })
 
 export const AppointmentsSelector = (state: RootState) => state.user.appointments
-export const { addAppointment } = userSlice.actions
+export const { addAppointment, deleteAppointment } = userSlice.actions
 export default userSlice.reducer
