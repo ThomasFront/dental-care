@@ -21,7 +21,7 @@ export const VisitHistory = () => {
               <p>Akcja</p>
             </VisitInformation>
             <AllVisitsContainer>
-              {allAppointments.map(appointment => <AppointmentInfo info={appointment} />)}
+              {allAppointments.map((appointment, index) => <AppointmentInfo info={appointment} index={index}/>)}
             </AllVisitsContainer>
           </>
           :
