@@ -63,7 +63,7 @@ export const Navbar = () => {
             <DesktopItemWrapper>
               {linkItems.map((item, index) => <LinkItemDesktop item={item} key={index} />)}
               {user &&
-                <LogoutButton onClick={handleLogout}><LogoutIcon /></LogoutButton>
+                <LogoutButton onClick={handleLogout}>Wyloguj</LogoutButton>
               }
               <VisitButton setOpenNavMobile={setOpenNavMobile} />
             </DesktopItemWrapper>
@@ -73,7 +73,7 @@ export const Navbar = () => {
       <NavMobile showMobileMenu={openNavMobile}>
         <NavMobileItems>
           {user &&
-            <LogoutButton onClick={handleLogout}><LogoutIcon /></LogoutButton>
+            <LogoutButton onClick={handleLogout}>Wyloguj</LogoutButton>
           }
           <VisitButton setOpenNavMobile={setOpenNavMobile} />
           {linkItems.map((item, index) => <LinkItemMobile item={item} key={index} setOpenNavMobile={setOpenNavMobile} />)}

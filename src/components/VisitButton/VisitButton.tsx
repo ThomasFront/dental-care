@@ -6,7 +6,7 @@ type NavMobileType = {
   setOpenNavMobile: (value: boolean) => void
 }
 
-export const VisitButton = ({setOpenNavMobile}: NavMobileType) => {
+export const VisitButton = ({ setOpenNavMobile }: NavMobileType) => {
   return (
     <Link to="/visit" onClick={() => setOpenNavMobile(false)}>
       <Wrapper>

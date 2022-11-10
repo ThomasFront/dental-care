@@ -30,6 +30,7 @@ export const LogoutButton = styled.button`
   border-radius: 6px;
   box-shadow: 0 0 15px rgba(50, 50, 50, 0.3);
   transition: transform 0.2s, background-color 0.2s;
+  font-size: 14px;
 
   @media (min-width: 768px){
     margin-bottom: 0;
@@ -38,6 +39,7 @@ export const LogoutButton = styled.button`
 
   @media (min-width: 1024px){
     margin-left: 10px;
+    font-size: 17px;
   }
   
   &:hover {

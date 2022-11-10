@@ -4,7 +4,7 @@ export const Wrapper = styled.button`
   margin-bottom: 40px;
   background-color: #02adbe;
   padding: 4px 8px;
-  font-size: 18px;
+  font-size: 16px;
   cursor: pointer;
   border: none;
   border-radius: 6px;
@@ -14,6 +14,10 @@ export const Wrapper = styled.button`
   @media (min-width: 768px){
     margin-bottom: 0;
     margin-left: 10px;
+  }
+
+  @media (min-width: 1024px){
+    font-size: 17px;
   }
   
   &:hover {
