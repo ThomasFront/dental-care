@@ -16,7 +16,6 @@ export const ContentContainer = styled.div`
   border-radius: 6px;
   max-width: 600px;
   width: 100%;
-  background-color: #fff;
 `
 
 export const WelcomeContainer = styled.div`
@@ -37,4 +36,5 @@ export const CategoriesContainer = styled.div`
 
 export const CategoryInformation = styled.div`
   margin-top: 40px;
+  width: 100%;
 `

@@ -5,24 +5,21 @@ import { AddVisitBtn, CalendarWrapper, SelectsContainer, Subtitled, TitleBox } f
 import Calendar from 'react-calendar'
 import 'react-calendar/dist/Calendar.css';
 import { useDispatch } from 'react-redux'
-import { addAppointment, AppointmentsSelector, AppointmentType } from '../../store/slices/userSlice'
+import { addAppointment, AppointmentType } from '../../store/slices/userSlice'
 import { format } from 'date-fns'
-import { useSelector } from 'react-redux'
 
 export const Appointment = () => {
   const [selectedDoctor, setSelectedDoctor] = useState(doctors[0].id)
   const [selectedDate, setSelectedDate] = useState(new Date())
   const [selectedHour, setSelectedHour] = useState(appointmentHours[0].value)
   const dispatch = useDispatch()
-  const allAppointments = useSelector(AppointmentsSelector)
-  console.log(allAppointments)
 
   const handleAppointment = () => {
     const payload: AppointmentType = {
       date: format(selectedDate, 'dd-MM-yyyy'),
-      hour: `${selectedHour}:00 - ${parseInt(selectedHour)+1}:00`,
+      hour: `${selectedHour}:00 - ${parseInt(selectedHour) + 1}:00`,
       doctorId: selectedDoctor,
-      doctorName: doctors.filter(doctor => doctor.id === selectedDoctor)[0].name 
+      doctorName: doctors.filter(doctor => doctor.id === selectedDoctor)[0].name
     }
     dispatch(addAppointment(payload))
   }
@@ -48,13 +45,13 @@ export const Appointment = () => {
             maxDate={new Date("12-31-2023")}
           />
         </CalendarWrapper>
-          
+
         <Subtitled>Wybierz godzine:</Subtitled>
-          <select value={selectedHour} onChange={e => setSelectedHour(e.target.value)}>
-            {appointmentHours.map(({ label, value }) =>
-              <option value={value}>{label}</option>
-            )}
-          </select>
+        <select value={selectedHour} onChange={e => setSelectedHour(e.target.value)}>
+          {appointmentHours.map(({ label, value }) =>
+            <option value={value} key={value}>{label}</option>
+          )}
+        </select>
         <AddVisitBtn onClick={handleAppointment}>Umów wizytę</AddVisitBtn>
       </SelectsContainer>
     </Wrapper>

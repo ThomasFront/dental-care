@@ -36,13 +36,13 @@ export const VisitPage = () => {
   }
 
   useEffect(() => {
-    if(user){
+    if (user) {
       getUser()
     }
   }, [user])
-  
+
   useEffect(() => {
-    if(!loading && !user){
+    if (!loading && !user) {
       navigate('/login')
     }
   }, [user, loading])
@@ -68,7 +68,7 @@ export const VisitPage = () => {
             <CategoryInformation>
               {!loading && selectedCategory === 'Appointment' && <Appointment />}
               {!loading && selectedCategory === 'History' && <VisitHistory />}
-              {!loading && selectedCategory === 'Account' && <Profile userInfo={userInfo}/>}
+              {!loading && selectedCategory === 'Account' && <Profile userInfo={userInfo} />}
             </CategoryInformation>
           </ContentContainer>
         </PageWrapper>
