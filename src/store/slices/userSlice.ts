@@ -27,14 +27,6 @@ export const userSlice = createSlice({
   },
 })
 
-const handleDate = (date: string, time: string) => {
-  const newDate = date.split('-').map(value => parseInt(value))
-  const newTime = parseInt(time.split(':')[0])
-  return new Date(newDate[2], newDate[0], newDate[1], newTime, 0).valueOf()
-}
-
-export const AppointmentsSelector = 
-  (state: RootState) => [...state.user.appointments]
-    .sort((b,a) => handleDate(b.date, b.hour) - handleDate(a.date, a.hour))
+export const AppointmentsSelector = (state: RootState) => state.user.appointments
 export const { addAppointment } = userSlice.actions
 export default userSlice.reducer
