@@ -4,6 +4,7 @@ import { useAuthState } from 'react-firebase-hooks/auth'
 import { useNavigate } from 'react-router-dom'
 import { Appointment } from '../../components/Appointment'
 import { Category } from '../../components/Category'
+import { LoadingSpinner } from '../../components/LoadingSpinner'
 import { PageWrapper } from '../../components/PageWrapper'
 import { Profile } from '../../components/Profile'
 import { TextWrapper } from '../../components/TextWrapper'
@@ -52,24 +53,29 @@ export const VisitPage = () => {
       <TextWrapper>
         <PageWrapper>
           <ContentContainer>
-            <WelcomeContainer>
-              <p>Witaj <span>{userInfo?.name} {userInfo?.surname}</span>!</p>
-            </WelcomeContainer>
-            <CategoriesContainer>
-              {visitPageCategories.map(category =>
-                <Category
-                  key={category.id}
-                  item={category}
-                  setSelectedCategory={setSelectedCategory}
-                  selectedCategory={selectedCategory}
-                />
-              )}
-            </CategoriesContainer>
-            <CategoryInformation>
-              {!loading && selectedCategory === 'Appointment' && <Appointment setSelectedCategory={setSelectedCategory}/>}
-              {!loading && selectedCategory === 'History' && <VisitHistory />}
-              {!loading && selectedCategory === 'Account' && <Profile userInfo={userInfo} />}
-            </CategoryInformation>
+            {loading ?
+              <LoadingSpinner/> :
+              <>
+                <WelcomeContainer>
+                  <p>Witaj <span>{userInfo?.name} {userInfo?.surname}</span>!</p>
+                </WelcomeContainer>
+                <CategoriesContainer>
+                  {visitPageCategories.map(category =>
+                    <Category
+                      key={category.id}
+                      item={category}
+                      setSelectedCategory={setSelectedCategory}
+                      selectedCategory={selectedCategory}
+                    />
+                  )}
+                </CategoriesContainer>
+                <CategoryInformation>
+                  {!loading && selectedCategory === 'Appointment' && <Appointment setSelectedCategory={setSelectedCategory} />}
+                  {!loading && selectedCategory === 'History' && <VisitHistory />}
+                  {!loading && selectedCategory === 'Account' && <Profile userInfo={userInfo} />}
+                </CategoryInformation>
+              </>
+            }
           </ContentContainer>
         </PageWrapper>
       </TextWrapper>
