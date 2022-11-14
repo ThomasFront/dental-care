@@ -5,8 +5,10 @@ import { RootState } from '../store'
 export type AppointmentType = {
   date: string,
   hour: string,
+  hourId: string,
   doctorName: string,
-  doctorId: string
+  doctorId: string,
+  id: string
 }
 
 export interface CounterState {
@@ -24,9 +26,9 @@ export const userSlice = createSlice({
     addAppointment: (state, action: PayloadAction<AppointmentType>) => {
       state.appointments.push(action.payload)
     },
-    deleteAppointment: (state, action: PayloadAction<number>) => {
-      const indexToDelete = action.payload
-      state.appointments.splice(indexToDelete, 1)
+    deleteAppointment: (state, action: PayloadAction<string>) => {
+      const idToDelete = action.payload
+      state.appointments = state.appointments.filter(appointment => appointment.id !== idToDelete)
     }
   },
 })

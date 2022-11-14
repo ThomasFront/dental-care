@@ -6,23 +6,19 @@ import { ButtonContainer, ButtonsWrapper, ModalBtn, Wrapper } from './Appointmen
 
 type InfoType = {
   info: AppointmentType
-  index: number
 }
 
 
-export const AppointmentInfo = ({ info, index }: InfoType) => {
-  const { date, hour, doctorName } = info
+export const AppointmentInfo = ({ info }: InfoType) => {
+  const { date, hour, doctorName, id } = info
   const [showModal, setShowModal] = useState(false)
   const dispatch = useDispatch()
 
-  // const deleteVisit = (index: number) => {
-  //   dispatch(deleteAppointment(index))
-  // }
-
-  const handleDelete = (index: number) => {
+  const handleDelete = () => {
     setShowModal(false)
-    dispatch(deleteAppointment(index))
+    dispatch(deleteAppointment(id))
   }
+
   return (
     <>
       <Wrapper>
@@ -43,7 +39,7 @@ export const AppointmentInfo = ({ info, index }: InfoType) => {
         <Modal>
           <h2>Czy na pewno chcesz odwołać wizytę?</h2>
           <ButtonsWrapper>
-            <ModalBtn confirm onClick={() => handleDelete(index)}>Tak</ModalBtn>
+            <ModalBtn confirm onClick={handleDelete}>Tak</ModalBtn>
             <ModalBtn onClick={() => setShowModal(false)}>Nie</ModalBtn>
           </ButtonsWrapper>
         </Modal>
