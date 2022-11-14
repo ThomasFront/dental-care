@@ -57,9 +57,25 @@ export const AddVisitBtn = styled.button`
   cursor: pointer;
   transition: transform 0.2s, background-color 0.2s;
 
-  
   &:hover {
       transform: scale(1.03);
       background-color: rgb(2, 188, 207);
   }
+`
+
+export const ModalButton = styled.button`
+    padding: 5px 10px;
+    border: none;
+    margin: 10px auto;
+    width: 100%;
+    background-color: #02adbe;
+    box-shadow: 0 0 15px rgba(50, 50, 50, 0.3);
+    cursor: pointer;
+    border-radius: 6px;
+    transition: transform 0.2s, background-color 0.2s;
+    
+    &:hover {
+        transform: scale(1.015);
+        background-color: rgb(2, 188, 207);
+    }
 `

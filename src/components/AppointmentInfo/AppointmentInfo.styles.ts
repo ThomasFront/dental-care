@@ -1,4 +1,8 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
+
+type ModalBtnProps = {
+  confirm?: boolean
+}
 
 export const Wrapper = styled.article`
   display: flex;
@@ -62,4 +66,35 @@ export const ButtonContainer = styled.div`
   justify-content: center;
   align-items: center;
   width: 25%;
+`
+
+export const ButtonsWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`
+
+export const ModalBtn = styled.button<ModalBtnProps>`
+    border: none;
+    padding: 8px 16px;
+    background-color: gray;
+    box-shadow: 0 0 15px rgba(50, 50, 50, 0.3);
+    cursor: pointer;
+    border-radius: 6px;
+    transition: transform 0.2s, background-color 0.2s;
+    margin: 5px 10px;
+
+    &:hover {
+        transform: scale(1.03);
+        background-color: silver;
+    }
+
+    ${({confirm}) => confirm && css`
+      background-color: #02adbe;
+
+      &:hover {
+        background-color: rgb(2, 188, 207);
+      }
+    `}
+    
 `
