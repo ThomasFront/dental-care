@@ -2,11 +2,12 @@ import React, { useState } from 'react'
 import { SubmitHandler, useForm } from 'react-hook-form'
 import { SectionTitle } from '../../SectionTitle'
 import { TextWrapper } from '../../TextWrapper'
-import { ContactInfoWrapper, ContentWrapper, FormContainer, FormTitle, FormWrapper, ImageWrapper, MapContainer, PhoneIcon, Section, SectionWrapper, SkyscraperIcon } from './Contact.styles'
+import { ContactInfoWrapper, ContentWrapper, FormContainer, FormTitle, FormWrapper, MapDesktopWrapper, MapMobileWrapper, PhoneIcon, Section, SectionWrapper, SkyscraperIcon } from './Contact.styles'
 import ContactSvg from '/assets/contact-svg.svg'
 import * as yup from 'yup'
 import { yupResolver } from '@hookform/resolvers/yup'
-import { Map } from '../../Map'
+import { MapDesktop } from '../../MapDesktop'
+import { MapMobile } from '../../MapMobile'
 
 type Inputs = {
   name: string,
@@ -47,39 +48,39 @@ export const Contact = () => {
                 <h2>Pozostańmy w kontakcie!</h2>
                 <p>Jak możemy Ci pomóc?</p>
               </FormTitle>
-                {confirmSending ?
-                  <p>Wiadomość została wysłana. Skontaktujemy się w ciągu 24h.</p> :
-                  <FormWrapper onSubmit={handleSubmit(onSubmit)}>
-                    <input
-                      type="text"
-                      placeholder='Wpisz swoje imie'
-                      {...register("name")}
-                    />
-                    <p>{errors.name?.message}</p>
-                    <input
-                      type="email"
-                      placeholder='Wpisz swój adres email'
-                      {...register("email")}
-                    />
-                    <p>{errors.email?.message}</p>
-                    <textarea
-                      placeholder='Wpisz treść swojego pytania'
-                      {...register("contents")}
-                    />
-                    <p>{errors.contents?.message}</p>
-                    <button>Wyślij</button>
-                  </FormWrapper>
-                }
+              {confirmSending ?
+                <p>Wiadomość została wysłana. Skontaktujemy się w ciągu 24h.</p> :
+                <FormWrapper onSubmit={handleSubmit(onSubmit)}>
+                  <input
+                    type="text"
+                    placeholder='Wpisz swoje imie'
+                    {...register("name")}
+                  />
+                  <p>{errors.name?.message}</p>
+                  <input
+                    type="email"
+                    placeholder='Wpisz swój adres email'
+                    {...register("email")}
+                  />
+                  <p>{errors.email?.message}</p>
+                  <textarea
+                    placeholder='Wpisz treść swojego pytania'
+                    {...register("contents")}
+                  />
+                  <p>{errors.contents?.message}</p>
+                  <button>Wyślij</button>
+                </FormWrapper>
+              }
             </FormContainer>
-            <ImageWrapper>
-              <img src={ContactSvg} alt="" />
-            </ImageWrapper>
+            <MapDesktopWrapper>
+              <MapMobile/>
+            </MapDesktopWrapper>
           </ContentWrapper>
         </SectionWrapper>
       </TextWrapper>
-      <MapContainer>
-        <Map />
-      </MapContainer>
+      <MapMobileWrapper>
+        <MapDesktop />
+      </MapMobileWrapper>
     </Section>
   )
 }
