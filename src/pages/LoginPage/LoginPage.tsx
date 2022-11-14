@@ -25,7 +25,7 @@ export const LoginPage = () => {
   const navigate = useNavigate()
 
   useEffect(() => {
-    if (!!user){
+    if (!!user) {
       navigate('/')
     }
   }, [user])
@@ -34,7 +34,7 @@ export const LoginPage = () => {
     resolver: yupResolver(schema)
   });
 
-  const onSubmit: SubmitHandler<Inputs> = ({email, password}) => {
+  const onSubmit: SubmitHandler<Inputs> = ({ email, password }) => {
     logInWithEmailAndPassword(email, password)
     navigate('/visit')
   }

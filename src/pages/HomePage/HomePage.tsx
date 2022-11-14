@@ -9,11 +9,7 @@ import { Wrapper } from './HomePage.styles'
 
 export const HomePage = () => {
   return (
-    <Wrapper
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-    >
+    <Wrapper>
       <Header />
       <About />
       <Services />
