@@ -66,7 +66,7 @@ export const VisitPage = () => {
               )}
             </CategoriesContainer>
             <CategoryInformation>
-              {!loading && selectedCategory === 'Appointment' && <Appointment />}
+              {!loading && selectedCategory === 'Appointment' && <Appointment setSelectedCategory={setSelectedCategory}/>}
               {!loading && selectedCategory === 'History' && <VisitHistory />}
               {!loading && selectedCategory === 'Account' && <Profile userInfo={userInfo} />}
             </CategoryInformation>
