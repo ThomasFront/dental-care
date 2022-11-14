@@ -1,6 +1,7 @@
+import { motion } from "framer-motion";
 import styled from "styled-components";
 
-export const Wrapper = styled.div`
+export const Wrapper = styled(motion.div)`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -13,7 +14,7 @@ export const Wrapper = styled.div`
   backdrop-filter: blur(2px);
 `
 
-export const Container = styled.div`
+export const Container = styled(motion.div)`
   background-color: white;
   width: 100%;
   margin: 10px;
