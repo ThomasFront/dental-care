@@ -49,12 +49,16 @@ export const VisitPage = () => {
   }, [user, loading])
 
   return (
-    <Wrapper>
+    <Wrapper
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+    >
       <TextWrapper>
         <PageWrapper>
           <ContentContainer>
             {loading ?
-              <LoadingSpinner/> :
+              <LoadingSpinner /> :
               <>
                 <WelcomeContainer>
                   <p>Witaj <span>{userInfo?.name} {userInfo?.surname}</span>!</p>
