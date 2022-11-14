@@ -127,27 +127,24 @@ export const SectionWrapper = styled.div`
   align-items: center;
 `
 
-export const ImageWrapper = styled.div`
+export const MapDesktopWrapper = styled.div`
   display: none;
 
   @media(min-width: 992px){
     display: block;
     width: 50%;
-    background-color: #f2f2f2;
     padding: 20px;
-
-    img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
   }
 `
 
-export const MapContainer = styled.div`
+export const MapMobileWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+
+  @media (min-width: 992px){
+    display: none;
+  }
 `
 
 export const PhoneIcon = styled(TbPhone)`

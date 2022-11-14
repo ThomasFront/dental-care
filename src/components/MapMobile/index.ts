@@ -1,0 +1,1 @@
+export { MapMobile } from './MapMobile'
