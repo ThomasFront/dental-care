@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import styled from "styled-components";
 
 export const Wrapper = styled(motion.div)`
+  z-index: 200;
   display: flex;
   justify-content: center;
   align-items: center;

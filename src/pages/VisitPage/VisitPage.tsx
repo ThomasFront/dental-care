@@ -21,7 +21,7 @@ export type UserInfoType = {
 }
 
 export const VisitPage = () => {
-  const [user, loading] = useAuthState(auth);
+  const [user, loading, error] = useAuthState(auth);
   const [selectedCategory, setSelectedCategory] = useState('Appointment')
   const [userInfo, setUserInfo] = useState<null | UserInfoType>(null)
   const navigate = useNavigate()
@@ -37,13 +37,13 @@ export const VisitPage = () => {
   }
 
   useEffect(() => {
-    if (user) {
+    if (!loading && user) {
       getUser()
     }
   }, [user])
 
   useEffect(() => {
-    if (!loading && !user) {
+    if (!loading && !user && !error) {
       navigate('/login')
     }
   }, [user, loading])
