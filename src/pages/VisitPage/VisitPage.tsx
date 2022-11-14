@@ -49,11 +49,7 @@ export const VisitPage = () => {
   }, [user, loading])
 
   return (
-    <Wrapper
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-    >
+    <Wrapper>
       <TextWrapper>
         <PageWrapper>
           <ContentContainer>
