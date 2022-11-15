@@ -1,4 +1,4 @@
-import React, { useCallback, useMemo, useState } from 'react'
+import React, { useCallback, useEffect, useMemo, useState } from 'react'
 import { appointmentHours, doctors } from '../../utils'
 import { Wrapper } from '../TextWrapper/TextWrapper.styles'
 import { AddVisitBtn, CalendarWrapper, ModalButton, SelectsContainer, Subtitled, TitleBox } from './Appointment.styles'
@@ -20,10 +20,16 @@ export const Appointment = ({ setSelectedCategory }: SelectedCategoryType) => {
   const [selectedDate, setSelectedDate] = useState(new Date())
   const [selectedHour, setSelectedHour] = useState(appointmentHours[0].value)
   const [showModal, setShowModal] = useState(false)
+  const [error, setError] = useState(false)
   const allAppointments = useSelector(AppointmentsSelector)
   const dispatch = useDispatch()
 
   const handleAppointment = () => {
+    const isDateTaken = handleDisabled(selectedHour)
+    if(isDateTaken){
+      setError(true)
+      return
+    }
     const payload: AppointmentType = {
       date: format(selectedDate, 'dd-MM-yyyy'),
       hour: `${selectedHour}:00 - ${parseInt(selectedHour) + 1}:00`,
@@ -36,17 +42,10 @@ export const Appointment = ({ setSelectedCategory }: SelectedCategoryType) => {
     setShowModal(true)
   }
 
-  const checkAllAppointments = () => {
+  const showAllAppointments = () => {
     setSelectedCategory('History')
     setShowModal(false)
   }
-
-  // const filterGoneHours = (hours: typeof appointmentHours) => {
-  //   return hours.filter(hour =>
-  //     parseInt(hour.value) > new Date().getHours() ||
-  //     isAfter(selectedDate, new Date())
-  //   )
-  // }
 
   const filteredHours = useMemo(() => {
     return appointmentHours.filter(hour =>
@@ -62,6 +61,14 @@ export const Appointment = ({ setSelectedCategory }: SelectedCategoryType) => {
       appointment.date === format(selectedDate, 'dd-MM-yyyy')
     )
   }, [selectedDoctor, selectedDate])
+
+  useEffect(() => {
+    setSelectedHour(filteredHours[0].value)
+  }, [selectedDate])
+  
+  useEffect(() => {
+    setError(false)
+  }, [selectedDate, selectedHour, selectedDoctor])
 
   return (
     <>
@@ -91,7 +98,7 @@ export const Appointment = ({ setSelectedCategory }: SelectedCategoryType) => {
             </>
             : <>
               <Subtitled>Wybierz godzine:</Subtitled>
-              <select value={selectedHour} onChange={e => setSelectedHour(e.target.value)}>
+              <select value={selectedHour as string} onChange={e => setSelectedHour(e.target.value)}>
                 {filteredHours.map(({ label, value }) =>
                   <option
                     value={value}
@@ -106,6 +113,7 @@ export const Appointment = ({ setSelectedCategory }: SelectedCategoryType) => {
           }
 
           <AddVisitBtn onClick={handleAppointment}>Umów wizytę</AddVisitBtn>
+          {error && 'Godzina zajęta'}
         </SelectsContainer>
       </Wrapper>
       {showModal &&
@@ -114,7 +122,7 @@ export const Appointment = ({ setSelectedCategory }: SelectedCategoryType) => {
           <p>Data: <span>{allAppointments[allAppointments.length - 1]?.date}</span></p>
           <p>Godzina: <span>{allAppointments[allAppointments.length - 1]?.hour}</span></p>
           <p>Lekarz: <span>{allAppointments[allAppointments.length - 1]?.doctorName}</span></p>
-          <ModalButton onClick={checkAllAppointments}>Zobacz umówione wizyty</ModalButton>
+          <ModalButton onClick={showAllAppointments}>Zobacz umówione wizyty</ModalButton>
         </Modal>
       }
     </>
