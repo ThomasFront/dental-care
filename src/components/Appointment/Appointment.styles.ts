@@ -79,3 +79,7 @@ export const ModalButton = styled.button`
         background-color: rgb(2, 188, 207);
     }
 `
+
+export const ErrorMessage = styled.p`
+  color: crimson;
+`
