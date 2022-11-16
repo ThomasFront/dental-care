@@ -1,32 +1,18 @@
 import axios from 'axios'
-import React, { useEffect } from 'react'
-import { services } from '../../../utils'
+import React, { useEffect, useState } from 'react'
+import { ImageType, ServiceType, StrapiArrayType } from '../../../types/strapi'
 import { SectionTitle } from '../../SectionTitle'
 import { ServiceCard } from '../../ServiceCard'
-import { TextWrapper } from '../../TextWrapper'
 import { ContentContainer, GrayFade, ServicesContainer, Wrapper } from './Services.styles'
 
-type StrapiArrayType<T> = {
-  data: Array<{
-    id: number,
-    attributes: {
-      createdAt: string,
-      publishedAt: string,
-      updatedAt: string
-    } & T
-  }>
-}
-
-type ServicesType = StrapiArrayType<{
-  Description: string,
-  Title: string,
-}>
+type ServicesType = StrapiArrayType<ServiceType>
 
 export const Services = () => {
-  const getServices = () => {
-    axios.get('http://localhost:1337/api/services').then(response => {
-      console.log(response);
-    });
+  const [services, setServices] = useState<ServicesType['data']>([])
+
+  const getServices = async () => {
+    const response = await axios.get<ServicesType>('http://localhost:1337/api/services?populate=*')
+    setServices(response.data.data)
   }
 
   useEffect(() => {
@@ -39,7 +25,7 @@ export const Services = () => {
         <ContentContainer>
           <SectionTitle>Usługi</SectionTitle>
           <ServicesContainer>
-            {services.map(service => <ServiceCard key={service.id} service={service} />)}
+            {services.map(service => <ServiceCard key={service.id} service={service.attributes} />)}
           </ServicesContainer>
         </ContentContainer>
       </Wrapper>

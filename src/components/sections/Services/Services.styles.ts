@@ -13,7 +13,7 @@ export const ServicesContainer = styled.div`
 
   @media (min-width: 576px){
     flex-direction: row;
-    flex-wrap: wrap;
+    flex-wrap: wrap; 
   }
 `
 
