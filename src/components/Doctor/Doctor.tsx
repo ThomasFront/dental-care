@@ -1,22 +1,21 @@
 import React from 'react'
+import { DoctorType } from '../../types/strapi'
 import { FbIcon, LinkedIcon, ToothIcon, TwitterIcon, Wrapper } from './Doctor.styles'
 
-type DoctorType = {
-  doctor: {
-    id: number,
-    image: string,
-    alt: string,
-    name: string
-  }
+type DoctorProps = {
+  doctor: DoctorType
 }
 
-export const Doctor = ({ doctor }: DoctorType) => {
-  const { image, alt, name } = doctor
+
+export const Doctor = ({ doctor }: DoctorProps) => {
+
   return (
     <Wrapper>
-      <img src={image} alt={alt} />
-      <h2>{name}</h2>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum provident nobis repudiandae dolores. Nam aliquam ad, quas asperiores beatae accusantium.</p>
+      <img
+        src={`http://localhost:1337${doctor.Avatar.data.attributes.url}`}
+        alt={`Fotografia przedstawiająca stomatologa ${doctor.Name}`} />
+      <h2>{doctor.Name}</h2>
+      <p>{doctor.Description}</p>
       <ToothIcon />
       <div>
         <a href="#"><FbIcon /></a>

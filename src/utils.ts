@@ -99,44 +99,6 @@ export const settings = {
   ]
 };
  
-export const services = [
-  {
-    id: 1,
-    title: 'Piaskowanie zębów',
-    image: '/assets/dental-veneer.png',
-    desc: 'Jest to zabieg pozwalający usunąć przebarwienia koron zębów pochodzenia zewnętrznego (palenie tytoniu, kawa, herbata, czerwone wino, niektóre napoje).',
-  },
-  {
-    id: 2,
-    title: 'Stomatologia zachowawcza',
-    image: '/assets/dental-filling.png',
-    desc: 'Dotyka ona przeszło 90% ludzi na świecie. Próchnica występuje w miejscach predysponowanych – w bruzdach, na powierzchniach stycznych, w okolicy szyjek zębowych, rzadziej na powierzchniach gładkich.',
-  },
-  {
-    id: 3,
-    title: 'Endodoncja',
-    image: '/assets/dental-care.png',
-    desc: 'Polega na dokładnym usunięciu zainfekowanej lub nieodwracalnie zmienionej zapalnie miazgi, a następnie szczelnym wypełnieniu oczyszczonych kanałów odpowiednim materiałem.',
-  },
-  {
-    id: 4,
-    title: 'Chirurgia stomatologiczna',
-    image: '/assets/examination.png',
-    desc: 'Idealną sytuacją jest  utrzymanie swojego naturalnego uzębienia do końca życia. Czasami jednak konieczne są zabiegi chirurgiczne, najczęściej jest to usuwanie chorych zębów czy nacinanie ropni.',
-  },
-  {
-    id: 5,
-    title: 'Implanty zębowe',
-    image: '/assets/dental-implant.png',
-    desc: 'Implant stomatologiczny czyli wszczep, to sztuczny korzeń wstawiony w miejsce usuwanego lub dawno usuniętego zęba osadzony w kości szczęki lub żuchwy stanowi filar dla odbudowy protetycznej',
-  },
-  {
-    id: 6,
-    title: 'Wybielanie zębów',
-    image: '/assets/clean-tooth.png',
-    desc: 'Wybielanie zębów to zabieg stomatologii estetycznej, polegający na poprawieniu wyglądu przebarwionych zębów, za pomocą środków chemicznych.',
-  },
-]
 
 export const achievements = [
   {

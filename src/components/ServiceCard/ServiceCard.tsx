@@ -1,25 +1,22 @@
+import { ServiceType } from '../../types/strapi'
 import { Card, ImageContainer, TextContainer } from './ServiceCard.styles'
 
-type ServiceType = {
-  service: {
-    id: number,
-    title: string,
-    desc: string,
-    image: string
-  }
+type ServiceCardProps = {
+  service: ServiceType
 }
 
-export const ServiceCard = ({ service }: ServiceType) => {
-  const { id, title, desc, image } = service
+export const ServiceCard = ({ service }: ServiceCardProps) => {
 
   return (
     <Card>
       <ImageContainer>
-        <img src={image} alt="" />
+        <img
+          src={`http://localhost:1337${service.Avatar.data.attributes.url}`}
+          alt={`Ilustracja przedstawiająca ${service.Title}`} />
       </ImageContainer>
       <TextContainer>
-        <h2>{title}</h2>
-        <p>{desc}</p>
+        <h2>{service.Title}</h2>
+        <p>{service.Description}</p>
       </TextContainer>
     </Card>
   )

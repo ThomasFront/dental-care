@@ -7,8 +7,24 @@ import "slick-carousel/slick/slick-theme.css";
 import { doctors, settings } from '../../../utils';
 import { Doctor } from '../../Doctor';
 import { DecorativeBg } from '../../DecorativeBg';
+import axios from 'axios';
+import { useEffect, useState } from 'react';
+import { DoctorType, ImageType, StrapiArrayType } from '../../../types/strapi';
+
+type DoctorsType = StrapiArrayType<DoctorType>
 
 export const About = () => {
+  const [doctors, setDoctors] = useState<DoctorsType['data']>([])
+
+  const getDoctors = async () => {
+    const response = await axios.get<DoctorsType>('http://localhost:1337/api/doctors?populate=*')
+    setDoctors(response.data.data)
+  }
+
+  useEffect(() => {
+    getDoctors()
+  }, [])
+
   return (
     <>
       <TextWrapper>
@@ -24,7 +40,7 @@ export const About = () => {
           </Container>
           <DoctorsList>
             <Slider {...settings}>
-              {doctors.map(person => <Doctor doctor={person} key={person.id} />)}
+              {doctors.map(person => <Doctor doctor={person.attributes} key={person.id} />)}
             </Slider>
           </DoctorsList>
         </Section>
