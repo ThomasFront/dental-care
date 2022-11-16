@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect, useMemo, useState } from 'react'
 import { appointmentHours, doctors } from '../../utils'
 import { Wrapper } from '../TextWrapper/TextWrapper.styles'
-import { AddVisitBtn, CalendarWrapper, ModalButton, SelectsContainer, Subtitled, TitleBox } from './Appointment.styles'
+import { AddVisitBtn, CalendarWrapper, ErrorMessage, ModalButton, SelectsContainer, Subtitled, TitleBox } from './Appointment.styles'
 import Calendar from 'react-calendar'
 import 'react-calendar/dist/Calendar.css';
 import { useDispatch } from 'react-redux'
@@ -26,7 +26,7 @@ export const Appointment = ({ setSelectedCategory }: SelectedCategoryType) => {
 
   const handleAppointment = () => {
     const isDateTaken = handleDisabled(selectedHour)
-    if(isDateTaken){
+    if (isDateTaken) {
       setError(true)
       return
     }
@@ -65,7 +65,7 @@ export const Appointment = ({ setSelectedCategory }: SelectedCategoryType) => {
   useEffect(() => {
     setSelectedHour(filteredHours[0].value)
   }, [selectedDate])
-  
+
   useEffect(() => {
     setError(false)
   }, [selectedDate, selectedHour, selectedDoctor])
@@ -113,7 +113,7 @@ export const Appointment = ({ setSelectedCategory }: SelectedCategoryType) => {
           }
 
           <AddVisitBtn onClick={handleAppointment}>Umów wizytę</AddVisitBtn>
-          {error && 'Godzina zajęta'}
+          {error && <ErrorMessage>Wybrana godzina jest zajęta</ErrorMessage>}
         </SelectsContainer>
       </Wrapper>
       {showModal &&

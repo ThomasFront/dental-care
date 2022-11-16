@@ -25,38 +25,26 @@ export const doctors = [
   {
     id: '1',
     name: 'Małgorzata Kowalska',
-    image: 'assets/doctor-four.jpg',
-    alt: 'Fotografia przedstawiająca doktora Małgorzata Kowalska'
   },
   {
     id: '2',
     name: 'Joshua Pawłowski',
-    image: 'assets/doctor-two.jpg',
-    alt: 'Fotografia przedstawiająca doktora Joshua Pawłowski'
   },
   {
     id: '3',
     name: 'Maria Wiśniewska',
-    image: 'assets/doctor-three.jpg',
-    alt: 'Fotografia przedstawiająca doktora Maria Wiśniewska'
   },
   {
     id: '4',
     name: 'Paweł Wojciechowski',
-    image: '/assets/doctor-one.jpg',
-    alt: 'Fotografia przedstawiająca doktora Paweł Wojciechowski'
   },
   {
     id: '5',
     name: 'Dariusz Woźniak',
-    image: '/assets/doctor-five.jpg',
-    alt: 'Fotografia przedstawiająca doktora Dariusz Woźniak'
   },
   {
     id: '6',
     name: 'Patrycja Brzoza',
-    image: '/assets/doctor-six.jpg',
-    alt: 'Fotografia przedstawiająca doktora Patrycja Brzoza'
   },
   
 ]
