@@ -1,13 +1,15 @@
 import React, { useState } from 'react'
 import { UserInfoType } from '../../pages/VisitPage/VisitPage'
-import { ButtonModal, ButtonsContainer, InformationBox, TitleBox, Wrapper } from './Profile.styles'
+import { AvatarContainer, ButtonModal, ButtonsContainer, InformationBox, TitleBox, Wrapper } from './Profile.styles'
 import { getAuth, deleteUser, User } from "firebase/auth";
-import { collection, deleteDoc, doc, getDocs, query, where } from 'firebase/firestore';
-import { db } from '../../firebase';
+import { collection, deleteDoc, doc, getDocs, query, updateDoc, where } from 'firebase/firestore';
+import { db, storage } from '../../firebase';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useNavigate } from 'react-router-dom';
 import { logout } from '../../firebase'
 import { Modal } from '../Modal';
+import { getDownloadURL, ref, uploadBytes } from 'firebase/storage';
+import userDefault from '../../../public/assets/user.png'
 
 type InfoType = {
   userInfo: UserInfoType | null
@@ -16,7 +18,26 @@ type InfoType = {
 export const Profile = ({ userInfo }: InfoType) => {
   const [showModal, setShowModal] = useState(false)
   const { name, surname, email } = userInfo as UserInfoType
+  const [file, setFile] = useState<File | null>(null);
   const navigate = useNavigate()
+
+
+  const handleUpload = async () => {
+    if (!file) {
+      return
+    }
+    const storageRef = ref(storage, `/files/${file.name}`)
+    uploadBytes(storageRef, file)
+    const url = await getDownloadURL(storageRef)
+    const auth = getAuth();
+    const user = auth.currentUser;
+    const q = query(collection(db, "users"), where("uid", "==", user?.uid));
+    const docs = await getDocs(q);
+    const docId = docs.docs[0].id
+    updateDoc(doc(db, "users", docId), {
+      photoUrl: url
+    })
+  }
 
   const deleteAccount = async () => {
     try {
@@ -35,14 +56,24 @@ export const Profile = ({ userInfo }: InfoType) => {
 
   return (
     <>
-        <TitleBox>
-          <p>Informacje o Twoim koncie:</p>
-        </TitleBox>
-        <InformationBox>
-          <p>Imie i nazwisko: <span>{name} {surname}</span></p>
-          <p>Email: <span>{email}</span></p>
-          <button onClick={() => setShowModal(true)}>Usuń konto</button>
-        </InformationBox>
+      <TitleBox>
+        <p>Informacje o Twoim koncie:</p>
+      </TitleBox>
+      <InformationBox>
+        <AvatarContainer>
+          <img src={userInfo?.photoUrl ? userInfo?.photoUrl : userDefault} alt="" />
+          <input
+            type="file"
+            accept="image/*"
+            onChange={e => e.target.files && setFile(e.target.files[0])}
+            placeholder='Wybierz avatar'
+          />
+          <button onClick={handleUpload}>Dodaj avatar</button>
+        </AvatarContainer>
+        <p>Imie i nazwisko: <span>{name} {surname}</span></p>
+        <p>Email: <span>{email}</span></p>
+        <button onClick={() => setShowModal(true)}>Usuń konto</button>
+      </InformationBox>
       {showModal &&
         <Modal>
           <h2>Czy na pewno chcesz usunąć swoje konto?</h2>
