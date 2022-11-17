@@ -17,7 +17,8 @@ export type UserInfoType = {
   name: string,
   email: string,
   surname: string,
-  uid: string
+  uid: string,
+  photoUrl?: string
 }
 
 export const VisitPage = () => {

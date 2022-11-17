@@ -72,3 +72,27 @@ export const ButtonModal = styled.button<ButtonModalProps>`
       }
     `}
 `
+
+export const AvatarContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-bottom: 30px;
+
+  img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 50%;
+  }
+
+  button {
+    background-color: gray;
+    color: white;
+
+    &:hover {
+      background-color: black;
+    }
+  }
+`
