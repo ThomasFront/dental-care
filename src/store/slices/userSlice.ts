@@ -11,12 +11,22 @@ export type AppointmentType = {
   id: string
 }
 
+export type UserInfoType = {
+  name: string,
+  email: string,
+  surname: string,
+  uid: string,
+  photoUrl?: string
+}
+
 export interface CounterState {
   appointments: Array<AppointmentType>
+  user: null | UserInfoType
 }
 
 const initialState: CounterState = {
   appointments: [],
+  user: null
 }
 
 export const userSlice = createSlice({
@@ -29,10 +39,22 @@ export const userSlice = createSlice({
     deleteAppointment: (state, action: PayloadAction<string>) => {
       const idToDelete = action.payload
       state.appointments = state.appointments.filter(appointment => appointment.id !== idToDelete)
+    },
+    updateUserInfo: (state, action: PayloadAction<UserInfoType>) => {
+      state.user = action.payload
+    },
+    logout: (state) => {
+      state.user = null
+    },
+    updateUserAvatar: (state, action: PayloadAction<string>) => {
+      if(state.user){
+        state.user.photoUrl = action.payload
+      }
     }
   },
 })
 
 export const AppointmentsSelector = (state: RootState) => state.user.appointments
-export const { addAppointment, deleteAppointment } = userSlice.actions
+export const userSelector = (state: RootState) => state.user.user
+export const { addAppointment, deleteAppointment, updateUserInfo, logout, updateUserAvatar } = userSlice.actions
 export default userSlice.reducer
