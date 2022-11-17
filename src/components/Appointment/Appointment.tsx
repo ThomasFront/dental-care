@@ -18,13 +18,17 @@ type SelectedCategoryType = {
 export const Appointment = ({ setSelectedCategory }: SelectedCategoryType) => {
   const [selectedDoctor, setSelectedDoctor] = useState(doctors[0].id)
   const [selectedDate, setSelectedDate] = useState(new Date())
-  const [selectedHour, setSelectedHour] = useState(appointmentHours[0].value)
+  const [selectedHour, setSelectedHour] = useState<null | string>(null)
   const [showModal, setShowModal] = useState(false)
   const [error, setError] = useState(false)
   const allAppointments = useSelector(AppointmentsSelector)
   const dispatch = useDispatch()
 
   const handleAppointment = () => {
+    if (!selectedHour) {
+      setError(true)
+      return
+    }
     const isDateTaken = handleDisabled(selectedHour)
     if (isDateTaken) {
       setError(true)
@@ -63,7 +67,9 @@ export const Appointment = ({ setSelectedCategory }: SelectedCategoryType) => {
   }, [selectedDoctor, selectedDate])
 
   useEffect(() => {
-    setSelectedHour(filteredHours[0].value)
+    if (filteredHours?.[0]?.value) {
+      setSelectedHour(filteredHours[0].value)
+    }
   }, [selectedDate])
 
   useEffect(() => {
@@ -112,7 +118,7 @@ export const Appointment = ({ setSelectedCategory }: SelectedCategoryType) => {
             </>
           }
 
-          <AddVisitBtn onClick={handleAppointment}>Umów wizytę</AddVisitBtn>
+          <AddVisitBtn onClick={handleAppointment} disabled={!filteredHours.length}>Umów wizytę</AddVisitBtn>
           {error && <ErrorMessage>Wybrana godzina jest zajęta</ErrorMessage>}
         </SelectsContainer>
       </Wrapper>

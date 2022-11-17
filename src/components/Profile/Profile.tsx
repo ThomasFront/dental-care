@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import { UserInfoType } from '../../pages/VisitPage/VisitPage'
 import { AvatarContainer, ButtonModal, ButtonsContainer, InformationBox, TitleBox, Wrapper } from './Profile.styles'
 import { getAuth, deleteUser, User } from "firebase/auth";
 import { collection, deleteDoc, doc, getDocs, query, updateDoc, where } from 'firebase/firestore';
@@ -10,24 +9,23 @@ import { logout } from '../../firebase'
 import { Modal } from '../Modal';
 import { getDownloadURL, ref, uploadBytes } from 'firebase/storage';
 import userDefault from '../../../public/assets/user.png'
+import { useDispatch } from 'react-redux';
+import { updateUserAvatar, userSelector } from '../../store/slices/userSlice';
+import { useSelector } from 'react-redux';
 
-type InfoType = {
-  userInfo: UserInfoType | null
-}
-
-export const Profile = ({ userInfo }: InfoType) => {
+export const Profile = () => {
   const [showModal, setShowModal] = useState(false)
-  const { name, surname, email } = userInfo as UserInfoType
   const [file, setFile] = useState<File | null>(null);
   const navigate = useNavigate()
-
+  const dispatch = useDispatch()
+  const userInfo = useSelector(userSelector)
 
   const handleUpload = async () => {
     if (!file) {
       return
     }
     const storageRef = ref(storage, `/files/${file.name}`)
-    uploadBytes(storageRef, file)
+    await uploadBytes(storageRef, file)
     const url = await getDownloadURL(storageRef)
     const auth = getAuth();
     const user = auth.currentUser;
@@ -37,6 +35,7 @@ export const Profile = ({ userInfo }: InfoType) => {
     updateDoc(doc(db, "users", docId), {
       photoUrl: url
     })
+    dispatch(updateUserAvatar(url))
   }
 
   const deleteAccount = async () => {
@@ -70,8 +69,8 @@ export const Profile = ({ userInfo }: InfoType) => {
           />
           <button onClick={handleUpload}>Dodaj avatar</button>
         </AvatarContainer>
-        <p>Imie i nazwisko: <span>{name} {surname}</span></p>
-        <p>Email: <span>{email}</span></p>
+        <p>Imie i nazwisko: <span>{userInfo?.name} {userInfo?.surname}</span></p>
+        <p>Email: <span>{userInfo?.email}</span></p>
         <button onClick={() => setShowModal(true)}>Usuń konto</button>
       </InformationBox>
       {showModal &&

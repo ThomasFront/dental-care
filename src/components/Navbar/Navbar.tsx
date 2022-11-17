@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useAuthState } from 'react-firebase-hooks/auth'
+import { useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import { auth, logout } from '../../firebase'
 import { linkItems } from '../../utils'
@@ -8,6 +9,7 @@ import { LinkItemMobile } from '../LinkItemMobile'
 import { TextWrapper } from '../TextWrapper'
 import { VisitButton } from '../VisitButton'
 import { BurgerIcon, BurgerWrapper, DesktopItemWrapper, LogoutButton, LogoutIcon, LogoWrapper, Nav as NavDesktop, NavMobile, NavMobileCloseIcon, NavMobileItems, ToothIcon, Wrapper } from './Navbar.styles'
+import { logout as logoutAction } from '../../store/slices/userSlice'
 
 export const Navbar = () => {
   const [openNavMobile, setOpenNavMobile] = useState(false)
@@ -15,12 +17,14 @@ export const Navbar = () => {
   const [pageYOffset, setPageYOffset] = useState(0)
   const [user] = useAuthState(auth);
   const navigate = useNavigate()
+  const dispatch = useDispatch()
 
 
   const handleDirection = (offsetStateValue: number, offsetWindowValue: number) => offsetStateValue < offsetWindowValue
 
   const handleLogout = () => {
     logout()
+    dispatch(logoutAction())
     navigate('/')
     setOpenNavMobile(false)
   }
