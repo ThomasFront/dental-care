@@ -45,7 +45,7 @@ export const About = () => {
           </Container>
           <DoctorsList>
             <Slider {...settings}>
-              {doctors.map(person => <Doctor doctor={person.attributes} key={person.id} />)}
+              {doctors.map(person => <Doctor doctor={person.attributes} id={person.id} key={person.id} />)}
             </Slider>
           </DoctorsList>
         </Section>

@@ -4,13 +4,13 @@ import { FbIcon, LinkedIcon, ToothIcon, TwitterIcon, Wrapper } from './Doctor.st
 
 type DoctorProps = {
   doctor: DoctorType
+  id: number
 }
 
 
-export const Doctor = ({ doctor }: DoctorProps) => {
-
+export const Doctor = ({ doctor, id }: DoctorProps) => {
   return (
-    <Wrapper>
+    <Wrapper to={`/doctor/${id}`}>
       <img
         src={`http://localhost:1337${doctor.Avatar.data.attributes.url}`}
         alt={`Fotografia przedstawiająca stomatologa ${doctor.Name}`} />

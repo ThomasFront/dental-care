@@ -17,6 +17,18 @@ export type StrapiArrayType<T> = {
   }
 }
 
+export type StrapiType<T> = {
+  data: {
+    id: number,
+    attributes: {
+      createdAt: string,
+      publishedAt: string,
+      updatedAt: string
+    } & T
+  }
+  meta: {}
+}
+
 export type ServiceType = {
   Avatar: ImageType
   Description: string,
@@ -52,3 +64,12 @@ export type DoctorType = {
   Name: string,
   Description: string
 }
+
+export type DoctorTypeAdditional = {
+  Avatar: ImageType
+  Name: string,
+  Description: string
+  AdditionalInfo: string
+}
+
+export type StrapiDoctorType = StrapiType<DoctorTypeAdditional>

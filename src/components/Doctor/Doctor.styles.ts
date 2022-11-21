@@ -1,8 +1,9 @@
 import styled from "styled-components";
 import { TbDental } from 'react-icons/tb'
 import { BsFacebook, BsTwitter, BsLinkedin } from 'react-icons/bs'
+import { Link } from "react-router-dom";
 
-export const Wrapper = styled.div`
+export const Wrapper = styled(Link)`
   position: relative;
   display: flex;
   justify-content: center;
@@ -13,6 +14,9 @@ export const Wrapper = styled.div`
   height: 450px;
   border-radius: 6px;
   padding: 10px;
+  text-decoration: none;
+  color: black;
+  cursor: pointer;
 
   img {
     margin-bottom: 25px;
