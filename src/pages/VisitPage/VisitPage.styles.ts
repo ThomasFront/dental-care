@@ -1,10 +1,11 @@
+import { motion } from "framer-motion";
 import styled from "styled-components";
 
 export const Wrapper = styled.div`
   min-height: 100vh;
 `
 
-export const ContentContainer = styled.div`
+export const ContentContainer = styled(motion.div)`
   display: flex;
   justify-content: center;
   align-items: center;

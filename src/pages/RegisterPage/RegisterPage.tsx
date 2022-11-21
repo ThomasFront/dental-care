@@ -41,8 +41,8 @@ export const RegisterPage = () => {
     resolver: yupResolver(schema)
   });
 
-  const onSubmit: SubmitHandler<Inputs> = ({ email, password, name, surname }) => {
-    registerWithEmailAndPassword(email, password, name, surname)
+  const onSubmit: SubmitHandler<Inputs> = async ({ email, password, name, surname }) => {
+    await registerWithEmailAndPassword(email, password, name, surname)
     navigate('/visit')
   }
 

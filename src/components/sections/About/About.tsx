@@ -31,7 +31,12 @@ export const About = () => {
         <Section id='about'>
           <SectionTitle>O nas</SectionTitle>
           <Container>
-            <TextContainer>
+            <TextContainer
+              initial={{ opacity: 0, y: -50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
+            >
               <strong>Nowoczesny oraz przyjazny gabinet stomatologiczny w Warszawie.</strong>
               <Text>Gabinet tworzony z pasją i oddaniem. Chcemy aby nasi wszyscy pacjenci czuli, że zależy nam na ich dobru. Cechuje nas dobra atmosfera - pacjenci często nas polecają nie tylko ze względu na profesjonalne leczenie...</Text>
               <Text>Do każdego klienta podchodzimy w sposób indywidualny, kompleksowo wykonujemy wszystkie zabiegi z zakresu stomatologii. Nie czekaj i sprawdź naszą pełną <button>oferte</button>.</Text>

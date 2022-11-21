@@ -1,6 +1,7 @@
+import { motion } from "framer-motion";
 import styled from "styled-components";
 
-export const Card = styled.div`
+export const Card = styled(motion.div)`
   position: relative;
   display: flex;
   justify-content: center;

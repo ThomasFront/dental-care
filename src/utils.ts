@@ -134,7 +134,7 @@ export const questions = [
   {
     id: 4,
     question: 'Czy można umawiać się na wizyty poprzez internet?',
-    answer: 'Na ten moment taka możliwość nie jest dostępna lecz pracujemy nad jej wdrożeniem.',
+    answer: 'Tak, na wizyty w naszym gabinecie można umawiać się online poprzez opcję "umów wizytę" na górze strony.',
   },
   {
     id: 5,

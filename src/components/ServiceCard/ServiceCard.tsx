@@ -8,7 +8,12 @@ type ServiceCardProps = {
 export const ServiceCard = ({ service }: ServiceCardProps) => {
 
   return (
-    <Card>
+    <Card
+      initial={{ opacity: 0, y: -50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8 }}
+      viewport={{ once: true }}
+    >
       <ImageContainer>
         <img
           src={`http://localhost:1337${service.Avatar.data.attributes.url}`}
