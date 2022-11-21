@@ -1,11 +1,12 @@
 import styled from "styled-components";
 import { TbBuildingSkyscraper, TbPhone } from 'react-icons/tb'
+import { motion } from "framer-motion";
 
 export const Section = styled.section`
   
 `
 
-export const ContentWrapper = styled.div`
+export const ContentWrapper = styled(motion.div)`
   margin: 60px 10px;
   background-color: #f2f2f2;
   box-shadow: 0 0 15px rgba(50, 50, 50, 0.3);

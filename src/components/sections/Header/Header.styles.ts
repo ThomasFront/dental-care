@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import styled from "styled-components";
 
 export const HeaderWrapper = styled.header`
@@ -94,4 +95,11 @@ export const TextWrapper = styled.div`
       background-color: rgb(2, 188, 207);
     }
   }
+`
+
+export const ContainWrapper = styled(motion.div)`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 `

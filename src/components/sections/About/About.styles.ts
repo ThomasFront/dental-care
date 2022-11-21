@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import styled from "styled-components";
 
 export const Section = styled.section`
@@ -16,7 +17,7 @@ export const Container = styled.div`
   margin-top: 40px;
 `
 
-export const TextContainer = styled.div`
+export const TextContainer = styled(motion.div)`
   margin-top: 20px;
   padding: 0 20px;
   text-align: center;

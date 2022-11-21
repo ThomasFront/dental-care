@@ -53,7 +53,10 @@ export const VisitPage = () => {
       <AnimatedBackground />
       <TextWrapper>
         <PageWrapper>
-          <ContentContainer>
+          <ContentContainer
+            initial={{ scale: 0, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+          >
             {loading ?
               <LoadingSpinner /> :
               <>

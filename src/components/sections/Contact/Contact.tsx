@@ -38,7 +38,12 @@ export const Contact = () => {
       <SectionTitle>Kontakt</SectionTitle>
       <TextWrapper>
         <SectionWrapper>
-          <ContentWrapper>
+          <ContentWrapper
+            initial={{ opacity: 0, y: -50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+          >
             <FormContainer>
               <FormTitle>
                 <ContactInfoWrapper>
@@ -73,7 +78,7 @@ export const Contact = () => {
               }
             </FormContainer>
             <MapDesktopWrapper>
-              <MapMobile/>
+              <MapMobile />
             </MapDesktopWrapper>
           </ContentWrapper>
         </SectionWrapper>
