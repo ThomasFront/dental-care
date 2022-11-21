@@ -45,6 +45,7 @@ export const userSlice = createSlice({
     },
     logout: (state) => {
       state.user = null
+      state.appointments = []
     },
     updateUserAvatar: (state, action: PayloadAction<string>) => {
       if(state.user){

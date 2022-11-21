@@ -16,6 +16,7 @@ export const ContentContainer = styled.div`
   border-radius: 6px;
   max-width: 600px;
   width: 100%;
+  background-color: #ffffff;
 `
 
 export const WelcomeContainer = styled.div`

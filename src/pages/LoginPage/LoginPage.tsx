@@ -9,6 +9,7 @@ import { yupResolver } from '@hookform/resolvers/yup'
 import { auth, logInWithEmailAndPassword } from '../../firebase'
 import { useAuthState } from 'react-firebase-hooks/auth'
 import { useNavigate } from 'react-router-dom'
+import { AnimatedBackground } from '../../components/AnimatedBackground'
 
 type Inputs = {
   email: string,
@@ -41,6 +42,7 @@ export const LoginPage = () => {
 
   return (
     <Wrapper>
+      <AnimatedBackground />
       <TextWrapper>
         <PageWrapper>
           <FormContainer>

@@ -4,6 +4,7 @@ import { useAuthState } from 'react-firebase-hooks/auth'
 import { useSelector } from 'react-redux'
 import { useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
+import { AnimatedBackground } from '../../components/AnimatedBackground'
 import { Appointment } from '../../components/Appointment'
 import { Category } from '../../components/Category'
 import { LoadingSpinner } from '../../components/LoadingSpinner'
@@ -39,7 +40,7 @@ export const VisitPage = () => {
     if (!loading && user) {
       getUser()
     }
-  }, [user])
+  }, [user, loading])
 
   useEffect(() => {
     if (!loading && !user && !error) {
@@ -49,6 +50,7 @@ export const VisitPage = () => {
 
   return (
     <Wrapper>
+      <AnimatedBackground />
       <TextWrapper>
         <PageWrapper>
           <ContentContainer>
