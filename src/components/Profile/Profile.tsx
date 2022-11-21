@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { AvatarContainer, ButtonModal, ButtonsContainer, InformationBox, TitleBox, Wrapper } from './Profile.styles'
+import { AvatarContainer, ButtonModal, ButtonsContainer, ErrorMessage, InformationBox, TitleBox, Wrapper } from './Profile.styles'
 import { getAuth, deleteUser, User } from "firebase/auth";
 import { collection, deleteDoc, doc, getDocs, query, updateDoc, where } from 'firebase/firestore';
 import { db, storage } from '../../firebase';
@@ -8,7 +8,7 @@ import { useNavigate } from 'react-router-dom';
 import { logout } from '../../firebase'
 import { Modal } from '../Modal';
 import { getDownloadURL, ref, uploadBytes } from 'firebase/storage';
-import userDefault from '../../../public/assets/user.png'
+import userDefault from '/assets/user.png'
 import { useDispatch } from 'react-redux';
 import { updateUserAvatar, userSelector } from '../../store/slices/userSlice';
 import { useSelector } from 'react-redux';
@@ -19,9 +19,11 @@ export const Profile = () => {
   const navigate = useNavigate()
   const dispatch = useDispatch()
   const userInfo = useSelector(userSelector)
+  const [error, setError] = useState(false)
 
   const handleUpload = async () => {
     if (!file) {
+      setError(true)
       return
     }
     const storageRef = ref(storage, `/files/${file.name}`)
@@ -36,6 +38,7 @@ export const Profile = () => {
       photoUrl: url
     })
     dispatch(updateUserAvatar(url))
+    setError(false)
   }
 
   const deleteAccount = async () => {
@@ -68,6 +71,7 @@ export const Profile = () => {
             placeholder='Wybierz avatar'
           />
           <button onClick={handleUpload}>Dodaj avatar</button>
+          {error && <ErrorMessage>Nie wybrano avataru</ErrorMessage>}
         </AvatarContainer>
         <p>Imie i nazwisko: <span>{userInfo?.name} {userInfo?.surname}</span></p>
         <p>Email: <span>{userInfo?.email}</span></p>

@@ -96,3 +96,7 @@ export const AvatarContainer = styled.div`
     }
   }
 `
+
+export const ErrorMessage = styled.p`
+  color: crimson;
+`

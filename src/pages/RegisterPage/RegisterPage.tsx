@@ -9,6 +9,7 @@ import * as yup from 'yup'
 import { auth, registerWithEmailAndPassword } from '../../firebase'
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useNavigate } from 'react-router-dom'
+import { AnimatedBackground } from '../../components/AnimatedBackground'
 
 type Inputs = {
   email: string,
@@ -48,6 +49,7 @@ export const RegisterPage = () => {
 
   return (
     <Wrapper>
+      <AnimatedBackground />
       <TextWrapper>
         <PageWrapper>
           <FormContainer>
