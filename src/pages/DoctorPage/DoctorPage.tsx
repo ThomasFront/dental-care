@@ -3,10 +3,10 @@ import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { TextWrapper } from '../../components/TextWrapper'
 import { StrapiDoctorType } from '../../types/strapi'
-import { DoctorWrapper, TextContainer, Wrapper } from './DoctorPage.styles'
+import { Container, DecorativeCircle, DescriptionsText, DoctorContainer, FbIcon, InfoContainer, InfoSvg, LinkedIcon, MiddleContainer, SocialMediaWrapper, Title, TwitterIcon, Wrapper } from './DoctorPage.styles'
 
 export const DoctorPage = () => {
-  const [doctor, setDoctor] = useState<StrapiDoctorType['data']['attributes'] | null>()
+  const [doctor, setDoctor] = useState<StrapiDoctorType['data']['attributes'] | null>(null)
   const { id } = useParams()
   const image = doctor?.Avatar.data.attributes.url
 
@@ -23,16 +23,31 @@ export const DoctorPage = () => {
   return (
     <Wrapper>
       <TextWrapper>
-        <DoctorWrapper>
-          <img src={`http://localhost:1337${image}`} alt="" />
-          <TextContainer>
-            <h2>{doctor?.Name}</h2>
-            <h3>Główne informacje:</h3>
-            <p>{doctor?.Description}</p>
-            <h3>Informacje dodatkowe:</h3>
-            <p>{doctor?.AdditionalInfo}</p>
-          </TextContainer>
-        </DoctorWrapper>
+        <MiddleContainer>
+          <Container
+            initial={{ scale: 0, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+          >
+            <InfoSvg />
+            <DoctorContainer>
+              <h2>{doctor?.Name}</h2>
+              <img src={`http://localhost:1337${image}`} alt={`Zdjęcie przedstawiające ${doctor?.Name}`} />
+              <DecorativeCircle />
+            </DoctorContainer>
+            <InfoContainer>
+              <Title>Główne informacje:</Title>
+              <DescriptionsText>{doctor?.Description}</DescriptionsText>
+              <Title>Dodatkowe informacje:</Title>
+              <DescriptionsText>{doctor?.AdditionalInfo}</DescriptionsText>
+              <Title>Bezpośredni kontakt:</Title>
+              <SocialMediaWrapper>
+                <a href="#"><FbIcon /></a>
+                <a href="#"><TwitterIcon /></a>
+                <a href="#"><LinkedIcon /></a>
+              </SocialMediaWrapper>
+            </InfoContainer>
+          </Container>
+        </MiddleContainer>
       </TextWrapper>
     </Wrapper>
   )
