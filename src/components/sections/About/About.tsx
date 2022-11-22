@@ -9,15 +9,13 @@ import { Doctor } from '../../Doctor';
 import { DecorativeBg } from '../../DecorativeBg';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
-import { DoctorType, ImageType, StrapiArrayType } from '../../../types/strapi';
-
-type DoctorsType = StrapiArrayType<DoctorType>
+import { ImageType, StrapiArrayType, StrapiDoctorsType } from '../../../types/strapi';
 
 export const About = () => {
-  const [doctors, setDoctors] = useState<DoctorsType['data']>([])
+  const [doctors, setDoctors] = useState<StrapiDoctorsType['data']>([])
 
   const getDoctors = async () => {
-    const response = await axios.get<DoctorsType>('http://localhost:1337/api/doctors?populate=*')
+    const response = await axios.get<StrapiDoctorsType>('http://localhost:1337/api/doctors?populate=*')
     setDoctors(response.data.data)
   }
 

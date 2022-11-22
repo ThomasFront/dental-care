@@ -59,12 +59,6 @@ export type ImageType = {
   }
 }
 
-export type DoctorType = {
-  Avatar: ImageType
-  Name: string,
-  Description: string
-}
-
 export type DoctorTypeAdditional = {
   Avatar: ImageType
   Name: string,
@@ -73,3 +67,4 @@ export type DoctorTypeAdditional = {
 }
 
 export type StrapiDoctorType = StrapiType<DoctorTypeAdditional>
+export type StrapiDoctorsType = StrapiArrayType<DoctorTypeAdditional>
