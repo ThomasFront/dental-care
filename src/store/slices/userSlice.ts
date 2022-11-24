@@ -22,11 +22,13 @@ export type UserInfoType = {
 export interface CounterState {
   appointments: Array<AppointmentType>
   user: null | UserInfoType
+  appointmentsLoaded: boolean
 }
 
 const initialState: CounterState = {
   appointments: [],
-  user: null
+  user: null,
+  appointmentsLoaded: false
 }
 
 export const userSlice = createSlice({
@@ -51,11 +53,15 @@ export const userSlice = createSlice({
       if(state.user){
         state.user.photoUrl = action.payload
       }
+    },
+    setAppointmentsLoaded: (state) => {
+      state.appointmentsLoaded = true
     }
   },
 })
 
+export const appointmentsLoadedSelector = (state: RootState) => state.user.appointmentsLoaded
 export const AppointmentsSelector = (state: RootState) => state.user.appointments
 export const userSelector = (state: RootState) => state.user.user
-export const { addAppointment, deleteAppointment, updateUserInfo, logout, updateUserAvatar } = userSlice.actions
+export const { addAppointment, deleteAppointment, updateUserInfo, logout, updateUserAvatar, setAppointmentsLoaded } = userSlice.actions
 export default userSlice.reducer
