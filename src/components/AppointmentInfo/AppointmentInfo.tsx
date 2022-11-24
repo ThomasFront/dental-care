@@ -1,6 +1,10 @@
-import React, { useState } from 'react'
+import { collection, deleteDoc, doc, DocumentData, getDocs, query, where } from 'firebase/firestore'
+import React, { useEffect, useState } from 'react'
+import { useAuthState } from 'react-firebase-hooks/auth'
+import { useSelector } from 'react-redux'
 import { useDispatch } from 'react-redux'
-import { AppointmentType, deleteAppointment } from '../../store/slices/userSlice'
+import { auth, db } from '../../firebase'
+import { addAppointment, appointmentsLoadedSelector, AppointmentType, deleteAppointment, setAppointmentsLoaded } from '../../store/slices/userSlice'
 import { Modal } from '../Modal'
 import { ButtonContainer, ButtonsWrapper, ModalBtn, Wrapper } from './AppointmentInfo.styles'
 
@@ -14,9 +18,10 @@ export const AppointmentInfo = ({ info }: InfoType) => {
   const [showModal, setShowModal] = useState(false)
   const dispatch = useDispatch()
 
-  const handleDelete = () => {
+  const handleDelete = async () => {
     setShowModal(false)
     dispatch(deleteAppointment(id))
+    await deleteDoc(doc(db, "appointments", id));
   }
 
   return (

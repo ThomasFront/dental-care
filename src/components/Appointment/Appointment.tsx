@@ -10,6 +10,9 @@ import { format, isAfter } from 'date-fns'
 import { Modal } from '../Modal'
 import { useSelector } from 'react-redux'
 import uniqid from 'uniqid';
+import { collection, doc, getDocs, query, setDoc, where } from 'firebase/firestore'
+import { auth, db } from '../../firebase'
+import { useAuthState } from 'react-firebase-hooks/auth'
 
 type SelectedCategoryType = {
   setSelectedCategory: (value: string) => void
@@ -21,10 +24,12 @@ export const Appointment = ({ setSelectedCategory }: SelectedCategoryType) => {
   const [selectedHour, setSelectedHour] = useState<null | string>(null)
   const [showModal, setShowModal] = useState(false)
   const [error, setError] = useState(false)
+  const [user] = useAuthState(auth)
+  const [currentDoctorAppointments, setCurrentDoctorAppointments] = useState<Array<any>>([])
   const allAppointments = useSelector(AppointmentsSelector)
   const dispatch = useDispatch()
 
-  const handleAppointment = () => {
+  const handleAppointment = async () => {
     if (!selectedHour) {
       setError(true)
       return
@@ -34,17 +39,39 @@ export const Appointment = ({ setSelectedCategory }: SelectedCategoryType) => {
       setError(true)
       return
     }
+    const id = uniqid()
+
     const payload: AppointmentType = {
       date: format(selectedDate, 'dd-MM-yyyy'),
       hour: `${selectedHour}:00 - ${parseInt(selectedHour) + 1}:00`,
       hourId: selectedHour,
       doctorId: selectedDoctor,
       doctorName: doctors.filter(doctor => doctor.id === selectedDoctor)[0].name,
-      id: uniqid(),
+      id
     }
+
+    await setDoc(doc(db, "appointments", id), {
+      ...payload,
+      userId: user?.uid
+    });
     dispatch(addAppointment(payload))
     setShowModal(true)
   }
+
+  const getDoctorAppointments = async () => {
+    const q = query(
+      collection(db, "appointments"),
+      where("doctorId", "==", selectedDoctor),
+      where("date", "==", format(selectedDate, 'dd-MM-yyyy'))
+    );
+    const docs = await getDocs(q)
+    const data = docs.docs.map(item => item.data())
+    setCurrentDoctorAppointments(data)
+  }
+
+  useEffect(() => {
+    getDoctorAppointments()
+  }, [selectedDoctor, selectedDate])
 
   const showAllAppointments = () => {
     setSelectedCategory('History')
@@ -59,12 +86,12 @@ export const Appointment = ({ setSelectedCategory }: SelectedCategoryType) => {
   }, [selectedDate])
 
   const handleDisabled = useCallback((hour: string) => {
-    return allAppointments.some(appointment =>
+    return currentDoctorAppointments.some(appointment =>
       appointment.doctorId === selectedDoctor &&
       appointment.hourId === hour &&
       appointment.date === format(selectedDate, 'dd-MM-yyyy')
     )
-  }, [selectedDoctor, selectedDate])
+  }, [selectedDoctor, selectedDate, currentDoctorAppointments])
 
   useEffect(() => {
     if (filteredHours?.[0]?.value) {
