@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useAuthState } from 'react-firebase-hooks/auth'
 import { useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
@@ -8,7 +8,7 @@ import { LinkItemDesktop } from '../LinkItemDesktop'
 import { LinkItemMobile } from '../LinkItemMobile'
 import { TextWrapper } from '../TextWrapper'
 import { VisitButton } from '../VisitButton'
-import { BurgerIcon, BurgerWrapper, DesktopItemWrapper, LogoutButton, LogoutIcon, LogoWrapper, Nav as NavDesktop, NavMobile, NavMobileCloseIcon, NavMobileItems, ToothIcon, Wrapper } from './Navbar.styles'
+import { BurgerIcon, BurgerWrapper, DesktopItemWrapper, LogoutButton, LogoWrapper, Nav as NavDesktop, NavMobile, NavMobileCloseIcon, NavMobileItems, ToothIcon, Wrapper } from './Navbar.styles'
 import { logout as logoutAction } from '../../store/slices/userSlice'
 
 export const Navbar = () => {

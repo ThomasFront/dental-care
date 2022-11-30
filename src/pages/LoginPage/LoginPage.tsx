@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import { useEffect } from 'react'
 import { useForm, SubmitHandler } from 'react-hook-form'
 import { FormContainer } from '../../components/FormContainer'
 import { PageWrapper } from '../../components/PageWrapper'

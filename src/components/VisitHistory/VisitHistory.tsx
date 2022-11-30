@@ -1,5 +1,5 @@
 import { collection, getDocs, query, where } from 'firebase/firestore'
-import React, { useEffect } from 'react'
+import { useEffect } from 'react'
 import { useAuthState } from 'react-firebase-hooks/auth'
 import { useDispatch } from 'react-redux'
 import { useSelector } from 'react-redux'

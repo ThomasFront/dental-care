@@ -1,8 +1,7 @@
-import React from 'react'
 import { PageWrapper } from '../../components/PageWrapper'
 import { TextWrapper } from '../../components/TextWrapper'
 import { ContentWrapper, LinkItem, Wrapper } from './NotFound.styles'
-import  ErrorImage  from '/assets/error.png'
+import ErrorImage from '/assets/error.png'
 
 export const NotFound = () => {
   return (

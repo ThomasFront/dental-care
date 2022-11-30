@@ -1,4 +1,3 @@
-import React from 'react'
 import { questions } from '../../../utils'
 import { Question } from '../../Question'
 import { SectionTitle } from '../../SectionTitle'

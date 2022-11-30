@@ -1,9 +1,9 @@
 import React from 'react'
-import { DoctorType } from '../../types/strapi'
+import { DoctorTypeAdditional } from '../../types/strapi'
 import { FbIcon, LinkedIcon, ToothIcon, TwitterIcon, Wrapper } from './Doctor.styles'
 
 type DoctorProps = {
-  doctor: DoctorType
+  doctor: DoctorTypeAdditional
   id: number
 }
 

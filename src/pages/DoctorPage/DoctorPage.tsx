@@ -1,5 +1,5 @@
 import axios from 'axios'
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { TextWrapper } from '../../components/TextWrapper'
 import { StrapiDoctorType } from '../../types/strapi'

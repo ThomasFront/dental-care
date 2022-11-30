@@ -1,4 +1,3 @@
-import React from 'react'
 import { Container, FooterItem } from './Footer.styles'
 
 export const Footer = () => {

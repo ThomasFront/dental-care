@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import { useEffect } from 'react'
 import { FormContainer } from '../../components/FormContainer'
 import { PageWrapper } from '../../components/PageWrapper'
 import { TextWrapper } from '../../components/TextWrapper'

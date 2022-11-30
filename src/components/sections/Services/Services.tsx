@@ -1,6 +1,6 @@
 import axios from 'axios'
-import React, { useEffect, useState } from 'react'
-import { ImageType, ServiceType, StrapiArrayType } from '../../../types/strapi'
+import { useEffect, useState } from 'react'
+import { ServiceType, StrapiArrayType } from '../../../types/strapi'
 import { SectionTitle } from '../../SectionTitle'
 import { ServiceCard } from '../../ServiceCard'
 import { ContentContainer, GrayFade, ServicesContainer, Wrapper } from './Services.styles'
