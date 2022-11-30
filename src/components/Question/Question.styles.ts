@@ -6,7 +6,7 @@ type AnswerContainerProps = {
 }
 
 type ArrowIconProps = {
-  rotateArrow?: boolean
+  rotateArrow: boolean
 }
 
 type QuestionContainerProps = {
@@ -58,7 +58,7 @@ export const Wrapper = styled.div`
   }
 `
 
-export const ArrowIcon = styled(AiOutlineArrowDown)<ArrowIconProps>`
+export const ArrowIconWrapper = styled.div<ArrowIconProps>`
   color: #02adbe;
   transition: transform 0.2s;
   cursor: pointer;

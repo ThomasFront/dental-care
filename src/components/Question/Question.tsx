@@ -1,5 +1,6 @@
 import { useState } from 'react'
-import { AnswerContainer, ArrowIcon, QuestionContainer, Wrapper } from './Question.styles'
+import { AnswerContainer, ArrowIconWrapper, QuestionContainer, Wrapper } from './Question.styles'
+import { AiOutlineArrowDown } from 'react-icons/ai'
 
 type QuestionType = {
   item: {
@@ -18,7 +19,9 @@ export const Question = ({ item }: QuestionType) => {
       <QuestionContainer onClick={() => setShowAnswer(prev => !prev)} isActive={showAnswer}>
         <h3>{question}</h3>
         <button>
-          <ArrowIcon rotateArrow={showAnswer} />
+          <ArrowIconWrapper rotateArrow={showAnswer}>
+            <AiOutlineArrowDown />
+          </ArrowIconWrapper>
         </button>
       </QuestionContainer>
       <AnswerContainer showAnswer={showAnswer}>
