@@ -61,7 +61,7 @@ export const Navbar = () => {
               {openNavMobile ?
                 <button><NavMobileCloseIcon onClick={() => setOpenNavMobile(prev => !prev)} /></button>
                 :
-                <button><BurgerIcon onClick={() => setOpenNavMobile(prev => !prev)} /></button>
+                <button><BurgerIcon aria-hidden onClick={() => setOpenNavMobile(prev => !prev)} /></button>
               }
             </BurgerWrapper>
             <DesktopItemWrapper>

@@ -1,4 +1,5 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
 import { DoctorTypeAdditional } from '../../types/strapi'
 import { FbIcon, LinkedIcon, ToothIcon, TwitterIcon, Wrapper } from './Doctor.styles'
 
@@ -9,8 +10,9 @@ type DoctorProps = {
 
 
 export const Doctor = ({ doctor, id }: DoctorProps) => {
+  const navigate = useNavigate()
   return (
-    <Wrapper to={`/doctor/${id}`}>
+    <Wrapper onClick={() => navigate(`/doctor/${id}`)}>
       <img
         src={`http://localhost:1337${doctor.Avatar.data.attributes.url}`}
         alt={`Fotografia przedstawiająca stomatologa ${doctor.Name}`} />

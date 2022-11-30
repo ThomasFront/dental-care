@@ -15,7 +15,6 @@ export const DoctorPage = () => {
     setDoctor(response.data.data.attributes)
   }
 
-  console.log(doctor)
   useEffect(() => {
     getDoctor()
   }, [])
