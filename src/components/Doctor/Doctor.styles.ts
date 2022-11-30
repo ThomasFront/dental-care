@@ -3,7 +3,7 @@ import { TbDental } from 'react-icons/tb'
 import { BsFacebook, BsTwitter, BsLinkedin } from 'react-icons/bs'
 import { Link } from "react-router-dom";
 
-export const Wrapper = styled(Link)`
+export const Wrapper = styled.div`
   position: relative;
   display: flex;
   justify-content: center;
