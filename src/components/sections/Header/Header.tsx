@@ -1,8 +1,6 @@
-import React from 'react'
 import { ContainWrapper, HeaderWrapper, Shadow, TextWrapper } from './Header.styles'
 import backgroundVideo from '/assets/Backgroundvideo.webm'
 import LazyLoad from 'react-lazy-load';
-import { motion } from 'framer-motion'
 
 export const Header = () => {
   return (

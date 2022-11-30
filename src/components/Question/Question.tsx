@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { AnswerContainer, ArrowIcon, QuestionContainer, Wrapper } from './Question.styles'
 
 type QuestionType = {

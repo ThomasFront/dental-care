@@ -4,12 +4,12 @@ import { Container, DoctorsList, Section, Text, TextContainer } from './About.st
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { doctors, settings } from '../../../utils';
+import { settings } from '../../../utils';
 import { Doctor } from '../../Doctor';
 import { DecorativeBg } from '../../DecorativeBg';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
-import { ImageType, StrapiArrayType, StrapiDoctorsType } from '../../../types/strapi';
+import { StrapiDoctorsType } from '../../../types/strapi';
 
 export const About = () => {
   const [doctors, setDoctors] = useState<StrapiDoctorsType['data']>([])

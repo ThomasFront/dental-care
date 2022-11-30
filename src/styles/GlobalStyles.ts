@@ -11,6 +11,11 @@ export const GlobalStyles = createGlobalStyle`
     background-color: #ffffff;
     color: black;
     font-family: 'Roboto', sans-serif;
+    overflow-x: hidden;
+  }
+
+  html {
+    overflow-x: hidden;
   }
 
   button {

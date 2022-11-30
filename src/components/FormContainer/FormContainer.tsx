@@ -1,4 +1,3 @@
-import React from 'react'
 import { ChildrenType } from '../Layout/Layout'
 import { Container } from './FormContainer.styles'
 

@@ -1,4 +1,3 @@
-import React from 'react'
 import { ButtonItem } from './Category.styles'
 
 type CategoryType = {

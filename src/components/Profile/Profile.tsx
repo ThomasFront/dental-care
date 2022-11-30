@@ -1,9 +1,8 @@
-import React, { useState } from 'react'
-import { AvatarContainer, ButtonModal, ButtonsContainer, ErrorMessage, InformationBox, TitleBox, Wrapper } from './Profile.styles'
+import { useState } from 'react'
+import { AvatarContainer, ButtonModal, ButtonsContainer, ErrorMessage, InformationBox, TitleBox } from './Profile.styles'
 import { getAuth, deleteUser, User } from "firebase/auth";
 import { collection, deleteDoc, doc, getDocs, query, updateDoc, where } from 'firebase/firestore';
 import { db, storage } from '../../firebase';
-import { useAuthState } from 'react-firebase-hooks/auth';
 import { useNavigate } from 'react-router-dom';
 import { logout } from '../../firebase'
 import { Modal } from '../Modal';
