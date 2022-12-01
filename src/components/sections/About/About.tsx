@@ -24,6 +24,10 @@ export const About = () => {
     getDoctors()
   }, [])
 
+  useEffect(() => {
+    console.log(doctors)
+  }, [doctors])
+
   return (
     <>
       <TextWrapper>

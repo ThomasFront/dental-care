@@ -30,7 +30,7 @@ export const DoctorPage = () => {
             <InfoSvg />
             <DoctorContainer>
               <h2>{doctor?.Name}</h2>
-              <img src={`${import.meta.env.VITE_STRAPI_URL}${image}`} alt={`Zdjęcie przedstawiające ${doctor?.Name}`} />
+              <img src={`${image}`} alt={`Zdjęcie przedstawiające ${doctor?.Name}`} />
               <DecorativeCircle />
             </DoctorContainer>
             <InfoContainer>
