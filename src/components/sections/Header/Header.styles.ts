@@ -6,7 +6,7 @@ export const HeaderWrapper = styled.header`
   height: 95vh;
   width: 100%;
 
-  video {
+  img {
     width: 100%;
     height: 100%;
     object-fit: cover;

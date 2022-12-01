@@ -1,14 +1,13 @@
 import { ContainWrapper, HeaderWrapper, Shadow, TextWrapper } from './Header.styles'
 import backgroundVideo from '/assets/Backgroundvideo.webm'
 import LazyLoad from 'react-lazy-load';
+import DentalPhotoBackground from '/assets/dental-photo.jpg'
 
 export const Header = () => {
   return (
     <HeaderWrapper id='home'>
       <Shadow />
-      <LazyLoad height="100%">
-        <video src={backgroundVideo} autoPlay loop muted></video>
-      </LazyLoad>
+      <img src={DentalPhotoBackground} alt="" />
       <TextWrapper>
         <ContainWrapper
           initial={{ opacity: 0, y: -200 }}
