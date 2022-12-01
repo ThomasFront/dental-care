@@ -36,7 +36,9 @@ export const userSlice = createSlice({
   initialState,
   reducers: {
     addAppointment: (state, action: PayloadAction<AppointmentType>) => {
-      state.appointments.push(action.payload)
+      if(!state.appointments.some(item => item.id === action.payload.id)){
+        state.appointments.push(action.payload)
+      }
     },
     deleteAppointment: (state, action: PayloadAction<string>) => {
       const idToDelete = action.payload

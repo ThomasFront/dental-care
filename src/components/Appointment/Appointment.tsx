@@ -22,6 +22,7 @@ export const Appointment = ({ setSelectedCategory }: SelectedCategoryType) => {
   const [selectedDoctor, setSelectedDoctor] = useState(doctors[0].id)
   const [selectedDate, setSelectedDate] = useState(new Date())
   const [selectedHour, setSelectedHour] = useState<null | string>(null)
+  const [isLoading, setIsLoading] = useState(false)
   const [showModal, setShowModal] = useState(false)
   const [error, setError] = useState(false)
   const [user] = useAuthState(auth)
@@ -30,13 +31,16 @@ export const Appointment = ({ setSelectedCategory }: SelectedCategoryType) => {
   const dispatch = useDispatch()
 
   const handleAppointment = async () => {
+    setIsLoading(true)
     if (!selectedHour) {
       setError(true)
+      setIsLoading(false)
       return
     }
     const isDateTaken = handleDisabled(selectedHour)
     if (isDateTaken) {
       setError(true)
+      setIsLoading(false)
       return
     }
     const id = uniqid()
@@ -53,6 +57,8 @@ export const Appointment = ({ setSelectedCategory }: SelectedCategoryType) => {
     await setDoc(doc(db, "appointments", id), {
       ...payload,
       userId: user?.uid
+    }).then(res => {
+      setIsLoading(false)
     });
     dispatch(addAppointment(payload))
     setShowModal(true)
@@ -145,7 +151,7 @@ export const Appointment = ({ setSelectedCategory }: SelectedCategoryType) => {
             </>
           }
 
-          <AddVisitBtn onClick={handleAppointment} disabled={!filteredHours.length}>Umów wizytę</AddVisitBtn>
+          <AddVisitBtn onClick={handleAppointment} disabled={!filteredHours.length || isLoading}>Umów wizytę</AddVisitBtn>
           {error && <ErrorMessage>Wybrana godzina jest zajęta</ErrorMessage>}
         </SelectsContainer>
       </Wrapper>
