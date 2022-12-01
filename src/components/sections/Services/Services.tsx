@@ -11,7 +11,7 @@ export const Services = () => {
   const [services, setServices] = useState<ServicesType['data']>([])
 
   const getServices = async () => {
-    const response = await axios.get<ServicesType>('http://localhost:1337/api/services?populate=*')
+    const response = await axios.get<ServicesType>(`${import.meta.env.VITE_STRAPI_URL}/api/services?populate=*`)
     setServices(response.data.data)
   }
 

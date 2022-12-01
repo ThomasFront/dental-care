@@ -11,7 +11,7 @@ export const DoctorPage = () => {
   const image = doctor?.Avatar.data.attributes.url
 
   const getDoctor = async () => {
-    const response = await axios.get<StrapiDoctorType>(`http://localhost:1337/api/doctors/${id}?populate=*`)
+    const response = await axios.get<StrapiDoctorType>(`${import.meta.env.VITE_STRAPI_URL}/api/doctors/${id}?populate=*`)
     setDoctor(response.data.data.attributes)
   }
 
@@ -30,7 +30,7 @@ export const DoctorPage = () => {
             <InfoSvg />
             <DoctorContainer>
               <h2>{doctor?.Name}</h2>
-              <img src={`http://localhost:1337${image}`} alt={`Zdjęcie przedstawiające ${doctor?.Name}`} />
+              <img src={`${import.meta.env.VITE_STRAPI_URL}${image}`} alt={`Zdjęcie przedstawiające ${doctor?.Name}`} />
               <DecorativeCircle />
             </DoctorContainer>
             <InfoContainer>

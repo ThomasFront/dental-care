@@ -15,7 +15,8 @@ export const About = () => {
   const [doctors, setDoctors] = useState<StrapiDoctorsType['data']>([])
 
   const getDoctors = async () => {
-    const response = await axios.get<StrapiDoctorsType>('http://localhost:1337/api/doctors?populate=*')
+    const response = await axios.get<StrapiDoctorsType>(`${import.meta.env.VITE_STRAPI_URL}/api/doctors?populate=*`)
+    console.log(response.data)
     setDoctors(response.data.data)
   }
 

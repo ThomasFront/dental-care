@@ -14,7 +14,7 @@ export const Doctor = ({ doctor, id }: DoctorProps) => {
   return (
     <Wrapper onClick={() => navigate(`/doctor/${id}`)}>
       <img
-        src={`http://localhost:1337${doctor.Avatar.data.attributes.url}`}
+        src={`${import.meta.env.VITE_STRAPI_URL}${doctor.Avatar.data.attributes.url}`}
         alt={`Fotografia przedstawiająca stomatologa ${doctor.Name}`} />
       <h2>{doctor.Name}</h2>
       <p>{doctor.Description}</p>

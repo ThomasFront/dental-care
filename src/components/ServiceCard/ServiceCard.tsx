@@ -16,7 +16,7 @@ export const ServiceCard = ({ service }: ServiceCardProps) => {
     >
       <ImageContainer>
         <img
-          src={`http://localhost:1337${service.Avatar.data.attributes.url}`}
+          src={`${import.meta.env.VITE_STRAPI_URL}${service.Avatar.data.attributes.url}`}
           alt={`Ilustracja przedstawiająca ${service.Title}`} />
       </ImageContainer>
       <TextContainer>
