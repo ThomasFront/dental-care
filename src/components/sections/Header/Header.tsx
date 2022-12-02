@@ -2,8 +2,11 @@ import { ContainWrapper, HeaderWrapper, Shadow, TextWrapper } from './Header.sty
 import backgroundVideo from '/assets/Backgroundvideo.webm'
 import LazyLoad from 'react-lazy-load';
 import DentalPhotoBackground from '/assets/dental-photo.jpg'
+import { useNavigate } from 'react-router-dom';
 
 export const Header = () => {
+  const navigate = useNavigate()
+
   return (
     <HeaderWrapper id='home'>
       <Shadow />
@@ -16,7 +19,7 @@ export const Header = () => {
         >
           <h1>Lepsze życie zaczyna się od pięknego uśmiechu!</h1>
           <h2>Popraw swój uśmiech z Dental<span>Care</span></h2>
-          <button>Nasze usługi</button>
+          <button onClick={() => navigate('/visit')}>Umów wizytę!</button>
         </ContainWrapper>
       </TextWrapper>
     </HeaderWrapper>
