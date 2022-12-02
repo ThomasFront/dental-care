@@ -1,11 +1,17 @@
-import { Link } from "react-router-dom";
-import styled, { css } from "styled-components";
+import { Link } from 'react-scroll'
+import styled from "styled-components";
 
 
-export const Item = styled(Link)`
+export const Item = styled.button`
   display: none;
   text-decoration: none;
   color: black;
+  border: none;
+  background-color: transparent;
+
+  &.active {
+    color: #02adbe;
+  }
   
   @media (min-width: 768px){
     position: relative;

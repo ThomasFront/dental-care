@@ -110,7 +110,7 @@ export const achievements = [
   {
     id: 4,
     title: 'Gabinetów',
-    amount: 6,
+    amount: 7,
     image: '/assets/dentist-chair.png'
   }
 ]

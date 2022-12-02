@@ -77,4 +77,5 @@ export const DoctorsList = styled.div`
   margin-top: 20px;
   width: 100%;
   padding: 20px;
+  min-height: 450px;
 `

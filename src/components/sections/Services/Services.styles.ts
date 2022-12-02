@@ -10,10 +10,19 @@ export const ServicesContainer = styled.div`
   align-items: center;
   flex-direction: column;
   margin-top: 100px;
+  min-height: 720px;
 
   @media (min-width: 576px){
     flex-direction: row;
     flex-wrap: wrap; 
+  }
+
+  @media (max-width: 575px){
+    min-height: 2160px;
+  }
+
+  @media (max-width: 840px){
+    min-height: 1080px;
   }
 `
 

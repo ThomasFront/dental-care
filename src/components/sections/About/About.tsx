@@ -16,17 +16,12 @@ export const About = () => {
 
   const getDoctors = async () => {
     const response = await axios.get<StrapiDoctorsType>(`${import.meta.env.VITE_STRAPI_URL}/api/doctors?populate=*`)
-    console.log(response.data)
     setDoctors(response.data.data)
   }
 
   useEffect(() => {
     getDoctors()
   }, [])
-
-  useEffect(() => {
-    console.log(doctors)
-  }, [doctors])
 
   return (
     <>

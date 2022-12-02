@@ -1,3 +1,5 @@
+import { useNavigate } from 'react-router-dom';
+import { scroller } from 'react-scroll';
 import { LinkItem } from './LinkItemMobile.styles'
 
 type LinkItemMobileType = {
@@ -9,11 +11,22 @@ type LinkItemMobileType = {
 }
 
 export const LinkItemMobile = ({ item, setOpenNavMobile }: LinkItemMobileType) => {
-  const { value } = item
+  const { value, scrollTo } = item
+  const navigate = useNavigate()
+
+  const goToHomeAndScroll = async () => {
+    setOpenNavMobile(false)
+    await navigate('/');
+    await scroller.scrollTo(scrollTo, {
+      duration: 500,
+      smooth: true,
+      offset: -60,
+    });
+  };
+
   return (
     <LinkItem
-      to=""
-      onClick={() => setOpenNavMobile(false)}
+      onClick={goToHomeAndScroll}
     >
       {value}
     </LinkItem>

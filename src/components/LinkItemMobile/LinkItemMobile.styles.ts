@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
-export const LinkItem = styled(Link)`
+export const LinkItem = styled.button`
   position: relative;
   margin: 6px 0;
   padding: 16px;
@@ -9,6 +9,8 @@ export const LinkItem = styled(Link)`
   color: black;
   cursor: pointer;
   transition: color 0.2s;
+  border: none;
+  background-color: transparent;
 
   &::before {
       position: absolute;
