@@ -1,6 +1,4 @@
 import { ContainWrapper, HeaderWrapper, Shadow, TextWrapper } from './Header.styles'
-import backgroundVideo from '/assets/Backgroundvideo.webm'
-import LazyLoad from 'react-lazy-load';
 import DentalPhotoBackground from '/assets/dental-photo.jpg'
 import { useNavigate } from 'react-router-dom';
 
@@ -10,7 +8,7 @@ export const Header = () => {
   return (
     <HeaderWrapper id='home'>
       <Shadow />
-      <img src={DentalPhotoBackground} alt="" />
+      <img src={DentalPhotoBackground} alt="" loading='lazy' />
       <TextWrapper>
         <ContainWrapper
           initial={{ opacity: 0, y: -200 }}
