@@ -70,3 +70,13 @@ export const DecorativePerson = styled.div`
 export const PersonIcon = styled(BsFillPersonFill)`
   font-size: 70px;
 `
+
+export const TestAccountContainer = styled.div`
+  margin-top: 5px;
+  background-color: black;
+  padding: 5px;
+  color: white;
+  border-radius: 6px;
+
+  padding: 5px 0;
+`

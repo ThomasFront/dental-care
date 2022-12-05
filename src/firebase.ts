@@ -32,7 +32,7 @@ export const registerWithEmailAndPassword = async (email: string, password: stri
   }
 };
 
-export const logInWithEmailAndPassword = async (email: any, password: any) => {
+export const logInWithEmailAndPassword = async (email: string, password: string) => {
   try {
     await signInWithEmailAndPassword(auth, email, password);
   } catch (err) {

@@ -11,6 +11,7 @@ export const LinkItem = styled.button`
   transition: color 0.2s;
   border: none;
   background-color: transparent;
+  font-size: 16px;
 
   &::before {
       position: absolute;
