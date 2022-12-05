@@ -4,7 +4,7 @@ import { BsFacebook, BsTwitter, BsLinkedin } from 'react-icons/bs'
 import { motion } from "framer-motion";
 
 export const Wrapper = styled.section`
-  margin: 120px 0;
+  margin: 160px 0 0;
   min-height: 100vh;
 `
 

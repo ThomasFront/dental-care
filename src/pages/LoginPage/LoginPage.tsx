@@ -3,7 +3,7 @@ import { useForm, SubmitHandler } from 'react-hook-form'
 import { FormContainer } from '../../components/FormContainer'
 import { PageWrapper } from '../../components/PageWrapper'
 import { TextWrapper } from '../../components/TextWrapper'
-import { ContentWrapper, DecorativePerson, LinkItem, PersonIcon, Wrapper } from './LoginPage.styles'
+import { ContentWrapper, DecorativePerson, LinkItem, PersonIcon, TestAccountContainer, Wrapper } from './LoginPage.styles'
 import * as yup from 'yup'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { auth, logInWithEmailAndPassword } from '../../firebase'
@@ -35,8 +35,8 @@ export const LoginPage = () => {
     resolver: yupResolver(schema)
   });
 
-  const onSubmit: SubmitHandler<Inputs> = ({ email, password }) => {
-    logInWithEmailAndPassword(email, password)
+  const onSubmit: SubmitHandler<Inputs> = async ({ email, password }) => {
+    await logInWithEmailAndPassword(email, password)
     navigate('/visit')
   }
 
@@ -67,6 +67,11 @@ export const LoginPage = () => {
             </form>
             <ContentWrapper>
               <p>Nie masz konta? <LinkItem to="/register">Zarejestruj</LinkItem> się!</p>
+              <TestAccountContainer>
+                <p>Testowy użytkownik:</p>
+                <p>email: test@test.pl</p>
+                <p>hasło: test12</p>
+              </TestAccountContainer>
             </ContentWrapper>
           </FormContainer>
         </PageWrapper>

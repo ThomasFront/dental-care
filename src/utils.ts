@@ -59,6 +59,7 @@ export const settings = {
   autoplay: true,
   autoplaySpeed: 3000,
   pauseOnHover: true,
+  swipe: false,
   responsive: [
     {
       breakpoint: 1024,
