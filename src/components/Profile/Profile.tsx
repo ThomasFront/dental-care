@@ -1,8 +1,8 @@
 import { useState } from 'react'
-import { AvatarContainer, ButtonModal, ButtonsContainer, ErrorMessage, InformationBox, TitleBox } from './Profile.styles'
+import { AvatarContainer, ButtonModal, ButtonsContainer, ContainerTestAccountInfo, ErrorMessage, InformationBox, TitleBox } from './Profile.styles'
 import { getAuth, deleteUser, User } from "firebase/auth";
 import { collection, deleteDoc, doc, getDocs, query, updateDoc, where } from 'firebase/firestore';
-import { db, storage } from '../../firebase';
+import { auth, db, storage } from '../../firebase';
 import { useNavigate } from 'react-router-dom';
 import { logout } from '../../firebase'
 import { Modal } from '../Modal';
@@ -11,6 +11,7 @@ import userDefault from '/assets/user.png'
 import { useDispatch } from 'react-redux';
 import { updateUserAvatar, userSelector } from '../../store/slices/userSlice';
 import { useSelector } from 'react-redux';
+import { useAuthState } from 'react-firebase-hooks/auth';
 
 export const Profile = () => {
   const [showModal, setShowModal] = useState(false)
@@ -19,6 +20,8 @@ export const Profile = () => {
   const dispatch = useDispatch()
   const userInfo = useSelector(userSelector)
   const [error, setError] = useState(false)
+  const [deleteAccountError, setDeleteAccountError] = useState(false)
+  const [user] = useAuthState(auth)
 
   const handleUpload = async () => {
     if (!file) {
@@ -50,8 +53,9 @@ export const Profile = () => {
       await deleteUser(user as User)
       logout()
       navigate('/')
+      setDeleteAccountError(false)
     } catch (error) {
-      console.log('error')
+      setDeleteAccountError(true)
     }
   }
 
@@ -78,11 +82,21 @@ export const Profile = () => {
       </InformationBox>
       {showModal &&
         <Modal>
-          <h2>Czy na pewno chcesz usunąć swoje konto?</h2>
-          <ButtonsContainer>
-            <ButtonModal confirm onClick={deleteAccount}>Tak</ButtonModal>
-            <ButtonModal onClick={() => setShowModal(false)}>Nie</ButtonModal>
-          </ButtonsContainer>
+          {user?.uid === 'RD24TB9so6UsO1MLFNH739OF1Ch2' ?
+            <ContainerTestAccountInfo>
+              <h2>Usuwanie konta dla testowego użytkownika jest wyłączone.</h2>
+              <ButtonModal confirm onClick={() => setShowModal(false)}>Zamknij informacje</ButtonModal>
+            </ContainerTestAccountInfo>
+            :
+            <>
+              <h2>Czy na pewno chcesz usunąć swoje konto?</h2>
+              {deleteAccountError && 'Usuwanie konta nie powiodło się.'}
+              <ButtonsContainer>
+                <ButtonModal confirm onClick={deleteAccount}>Tak</ButtonModal>
+                <ButtonModal onClick={() => setShowModal(false)}>Nie</ButtonModal>
+              </ButtonsContainer>
+            </>
+          }
         </Modal>
       }
     </>

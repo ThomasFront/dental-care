@@ -8,7 +8,11 @@ export const NotFound = () => {
     <Wrapper>
       <TextWrapper>
         <PageWrapper>
-          <ContentWrapper>
+          <ContentWrapper
+            initial={{ scale: 0, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            transition={{ duration: 0.5 }}
+          >
             <img src={ErrorImage} alt="Ilustracja przedstawiająca błędną scieżke" />
             <p>Ups... Taka ścieżka nie istnieje.</p>
             <LinkItem to="/">Powrót do strony głównej</LinkItem>

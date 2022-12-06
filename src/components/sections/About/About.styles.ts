@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { Link } from "react-scroll";
 import styled from "styled-components";
 
 export const Section = styled.section`
@@ -29,8 +30,9 @@ export const TextContainer = styled(motion.div)`
       font-size: 22px;
     }
   }
-  
-  button {
+`
+
+export const LinkItem = styled(Link)`
     background-color: transparent;
     border: none;
     font-size: 16px;
@@ -62,7 +64,6 @@ export const TextContainer = styled(motion.div)`
     @media (min-width: 576px){
       font-size: 18px;
     }
-  }
 `
 
 export const Text = styled.p`
