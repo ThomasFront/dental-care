@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
@@ -5,7 +6,7 @@ export const Wrapper = styled.div`
   min-height: 100vh;
 `
 
-export const ContentWrapper = styled.div`
+export const ContentWrapper = styled(motion.div)`
   display: flex;
   justify-content: center;
   align-items: center;
