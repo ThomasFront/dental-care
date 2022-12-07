@@ -12,6 +12,8 @@ The main features of the app:</b>
 - Visits cancellation
 - Form validation
 
+<b>Live version:</b> https://deluxe-bunny-08ce75.netlify.app/
+
 <b>Sample screenshots:</b>
 ![dental1](https://user-images.githubusercontent.com/101347573/206219904-4de8afd9-f5cf-4688-86df-9e16dd6df4c3.png)
 ![dental2](https://user-images.githubusercontent.com/101347573/206219918-bb08135a-90be-4263-afa9-330ba7ad91ea.png)
