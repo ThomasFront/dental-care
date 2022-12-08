@@ -80,3 +80,18 @@ export const DoctorsList = styled.div`
   padding: 20px;
   min-height: 450px;
 `
+
+export const LoadingContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+
+  p {
+    padding-top: 80px;
+    color: crimson;
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+  }
+`

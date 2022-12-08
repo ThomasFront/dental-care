@@ -1,6 +1,6 @@
 import { SectionTitle } from '../../SectionTitle'
 import { TextWrapper } from '../../TextWrapper'
-import { Container, DoctorsList, LinkItem, Section, Text, TextContainer } from './About.styles'
+import { Container, DoctorsList, LinkItem, LoadingContainer, Section, Text, TextContainer } from './About.styles'
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -10,13 +10,24 @@ import { DecorativeBg } from '../../DecorativeBg';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { StrapiDoctorsType } from '../../../types/strapi';
+import { LoadingSpinner } from '../../LoadingSpinner';
 
 export const About = () => {
   const [doctors, setDoctors] = useState<StrapiDoctorsType['data']>([])
+  const [loading, setLoading] = useState(false)
+  const [error, setError] = useState(false)
 
   const getDoctors = async () => {
-    const response = await axios.get<StrapiDoctorsType>(`${import.meta.env.VITE_STRAPI_URL}/api/doctors?populate=*`)
-    setDoctors(response.data.data)
+    try {
+      setLoading(true)
+      const response = await axios.get<StrapiDoctorsType>(`${import.meta.env.VITE_STRAPI_URL}/api/doctors?populate=*`)
+      setDoctors(response.data.data)
+      setLoading(false)
+      setError(false)
+    } catch (error) {
+      setError(true)
+      setLoading(false)
+    }
   }
 
   useEffect(() => {
@@ -42,6 +53,10 @@ export const About = () => {
             </TextContainer>
           </Container>
           <DoctorsList>
+            <LoadingContainer>
+              {loading && <LoadingSpinner />}
+              {error && <p>Proszę odśwież stronę... Nie udało się pobrać danych.</p>}
+            </LoadingContainer>
             <Slider {...settings}>
               {doctors.map(person => <Doctor doctor={person.attributes} id={person.id} key={person.id} />)}
             </Slider>
