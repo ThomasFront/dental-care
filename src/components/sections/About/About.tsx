@@ -63,7 +63,6 @@ export const About = () => {
           </DoctorsList>
         </Section>
       </TextWrapper>
-      <DecorativeBg />
     </>
   )
 }

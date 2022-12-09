@@ -3,7 +3,7 @@ import { Link } from "react-scroll";
 import styled from "styled-components";
 
 export const Section = styled.section`
-  margin-top: 60px;
+  margin: 60px 0;
   display: flex;
   justify-content: center;
   align-items: center;

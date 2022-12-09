@@ -22,15 +22,17 @@ export const LogoutButton = styled.button`
   justify-content: center;
   align-items: center;
   margin-bottom: 40px;
-  background-color: #02adbe;
+  color: white;
+  background-color: rgb(194, 40, 19);
   padding: 8px 16px;
+  font-weight: 300;
   font-size: 18px;
   cursor: pointer;
   border: none;
   border-radius: 6px;
-  box-shadow: 0 0 15px rgba(50, 50, 50, 0.3);
   transition: transform 0.2s, background-color 0.2s;
   font-size: 14px;
+  padding: 8px 12px;
 
   @media (min-width: 768px){
     margin-bottom: 0;
@@ -40,11 +42,12 @@ export const LogoutButton = styled.button`
   @media (min-width: 1024px){
     margin-left: 10px;
     font-size: 17px;
+    padding: 8px 12px;
   }
   
   &:hover {
       transform: scale(1.03);
-      background-color: rgb(2, 188, 207);
+      background-color: crimson;
   }
 `
 

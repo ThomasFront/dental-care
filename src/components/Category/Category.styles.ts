@@ -7,6 +7,8 @@ type ButtonItemProps = {
 export const ButtonItem = styled.button<ButtonItemProps>`
   margin: 0 5px;
   background-color: #02adbe;
+  color: white;
+  font-weight: 300;
   border: none;
   border-radius: 6px;
   padding: 5px 10px;

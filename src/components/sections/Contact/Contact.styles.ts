@@ -106,6 +106,7 @@ export const FormWrapper = styled.form`
     background-color: #02adbe;
     padding: 10px 20px;
     border-radius: 6px;
+    color: white;
     border: none;
     width: 100%;
     transition: transform 0.2s, background-color 0.2s;

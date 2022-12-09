@@ -62,6 +62,7 @@ export const Container = styled(motion.div)`
     border-radius: 6px;
     cursor: pointer;
     background-color: #02adbe;
+    color: white;
     transition: transform 0.2s, background-color 0.2s;
 
     @media (min-width: 375px){
