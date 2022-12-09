@@ -49,6 +49,7 @@ export const CalendarWrapper = styled.div`
 export const AddVisitBtn = styled.button`
   margin: 20px 0 10px;
   border-radius: 6px;
+  color: white;
   border: none;
   background-color: #02adbe;
   padding: 8px 16px;

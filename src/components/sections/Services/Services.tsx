@@ -45,7 +45,6 @@ export const Services = () => {
           </ServicesContainer>
         </ContentContainer>
       </Wrapper>
-      <GrayFade />
     </div>
   )
 }

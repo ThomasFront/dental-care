@@ -69,7 +69,7 @@ export const LoginPage = () => {
               <p>Nie masz konta? <LinkItem to="/register">Zarejestruj</LinkItem> się!</p>
               <TestAccountContainer>
                 <p>Testowy użytkownik:</p>
-                <p>email: test@test.pl</p>
+                <p>email: test@example.com</p>
                 <p>hasło: test12</p>
               </TestAccountContainer>
             </ContentWrapper>

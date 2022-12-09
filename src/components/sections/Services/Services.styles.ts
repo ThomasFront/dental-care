@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Wrapper = styled.section`
-  background-color: #f2f2f2;
+  background-color: white;
 `
 
 export const ServicesContainer = styled.div`

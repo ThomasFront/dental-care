@@ -74,16 +74,18 @@ export const TextWrapper = styled.div`
 
   button {
     margin: 20px auto 0;
+    padding: 6px 12px;
+    color: white;
+    font-weight: 300;
     background-color: #02adbe;
     border: none;
-    padding: 6px 12px;
     border-radius: 6px;
     transition: transform 0.2s, background-color 0.2s;
     cursor: pointer;
 
   @media (min-width: 576px){
     font-size: 16px;
-    padding: 8px 16px;
+    padding: 8px 12px;
   }
 
   @media (min-width: 768px){
